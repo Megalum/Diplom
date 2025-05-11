@@ -54,6 +54,26 @@
             dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            label19 = new Label();
+            label20 = new Label();
+            button1 = new Button();
+            button2 = new Button();
+            button4 = new Button();
+            button3 = new Button();
+            saveFileDialog1 = new SaveFileDialog();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -258,11 +278,195 @@
             dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             dataGridViewTextBoxColumn9.Width = 125;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(86, 668);
+            label7.Name = "label7";
+            label7.Size = new Size(50, 20);
+            label7.TabIndex = 9;
+            label7.Text = "label7";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(470, 668);
+            label8.Name = "label8";
+            label8.Size = new Size(50, 20);
+            label8.TabIndex = 10;
+            label8.Text = "label8";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(86, 688);
+            label9.Name = "label9";
+            label9.Size = new Size(50, 20);
+            label9.TabIndex = 11;
+            label9.Text = "label9";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(470, 688);
+            label10.Name = "label10";
+            label10.Size = new Size(58, 20);
+            label10.TabIndex = 12;
+            label10.Text = "label10";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(86, 723);
+            label11.Name = "label11";
+            label11.Size = new Size(58, 20);
+            label11.TabIndex = 13;
+            label11.Text = "label11";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(470, 723);
+            label12.Name = "label12";
+            label12.Size = new Size(58, 20);
+            label12.TabIndex = 14;
+            label12.Text = "label12";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(86, 743);
+            label13.Name = "label13";
+            label13.Size = new Size(58, 20);
+            label13.TabIndex = 15;
+            label13.Text = "label13";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(470, 743);
+            label14.Name = "label14";
+            label14.Size = new Size(58, 20);
+            label14.TabIndex = 16;
+            label14.Text = "label14";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(86, 777);
+            label15.Name = "label15";
+            label15.Size = new Size(305, 20);
+            label15.TabIndex = 17;
+            label15.Text = "Математическая модель вротого порядка:";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(86, 797);
+            label16.Name = "label16";
+            label16.Size = new Size(58, 20);
+            label16.TabIndex = 18;
+            label16.Text = "label16";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(86, 831);
+            label17.Name = "label17";
+            label17.Size = new Size(58, 20);
+            label17.TabIndex = 19;
+            label17.Text = "label17";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(470, 831);
+            label18.Name = "label18";
+            label18.Size = new Size(58, 20);
+            label18.TabIndex = 20;
+            label18.Text = "label18";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(86, 851);
+            label19.Name = "label19";
+            label19.Size = new Size(58, 20);
+            label19.TabIndex = 21;
+            label19.Text = "label19";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(470, 851);
+            label20.Name = "label20";
+            label20.Size = new Size(58, 20);
+            label20.TabIndex = 22;
+            label20.Text = "label20";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(324, 887);
+            button1.Name = "button1";
+            button1.Size = new Size(342, 37);
+            button1.TabIndex = 23;
+            button1.Text = "Вывод функции отклика полиномом";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(831, 116);
+            button2.Name = "button2";
+            button2.Size = new Size(87, 76);
+            button2.TabIndex = 24;
+            button2.Text = "Изменить\r\nзначения";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(831, 506);
+            button4.Name = "button4";
+            button4.Size = new Size(87, 76);
+            button4.TabIndex = 26;
+            button4.Text = "Изменить\r\nзначения";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(710, 887);
+            button3.Name = "button3";
+            button3.Size = new Size(185, 37);
+            button3.TabIndex = 27;
+            button3.Text = "Отчёт";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // AdequacyCheck
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(826, 719);
+            ClientSize = new Size(928, 936);
+            Controls.Add(button3);
+            Controls.Add(button4);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(label20);
+            Controls.Add(label19);
+            Controls.Add(label18);
+            Controls.Add(label17);
+            Controls.Add(label16);
+            Controls.Add(label15);
+            Controls.Add(label14);
+            Controls.Add(label13);
+            Controls.Add(label12);
+            Controls.Add(label11);
+            Controls.Add(label10);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(label7);
             Controls.Add(dataGridView2);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -308,5 +512,25 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private Label label10;
+        private Label label11;
+        private Label label12;
+        private Label label13;
+        private Label label14;
+        private Label label15;
+        private Label label16;
+        private Label label17;
+        private Label label18;
+        private Label label19;
+        private Label label20;
+        private Button button1;
+        private Button button2;
+        private Button button4;
+        private Button button3;
+        private SaveFileDialog saveFileDialog1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

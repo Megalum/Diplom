@@ -3,6 +3,7 @@ using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.VisualBasic;
 using System.CodeDom.Compiler;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace Factors
 {
@@ -11,20 +12,67 @@ namespace Factors
         public Form1()
         {
             InitializeComponent();
+            double[] k = { 0.0051, 0.0073, 0.0047, 0.00467, 0.0132, 0.01105, 0.0178, 0.0077 };
+            f = k; 
+            flag = false;
+        }        
+
+        public Form1(double[] y, bool flag, byte i, double[] y1, double[] y2)
+        {
+            InitializeComponent();
+            f = y;
+            this.y1 = y1;
+            this.y2 = y2;
+            this.i = i;
+            this.flag = flag;
         }
+
+        public double[] f = new double[8];
+        double[] y2;
+        double[] y1;
+        byte i;
+        bool flag;
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Elements elements = new Elements(2, 2700, 80);
-            Intervals intervals = new Intervals(0.5, 1000, 20);
-            // Заглушка
-            double[] f = { 0.0051, 0.0073, 0.0047, 0.00467, 0.0132, 0.01105, 0.0178, 0.0077 };
-            //double[] b = {0.00894, -0.00126, -0.0002228, 0.003497, -0.001272, -0.001802, 0.000535, -0.000715 };
+
+            if (isNumber(textBox1.Text, textBox2.Text, textBox3.Text))
+            {
+                Elements elements = new Elements(double.Parse(textBox1.Text),
+                                                 double.Parse(textBox2.Text),
+                                                 double.Parse(textBox3.Text));
+                if (isNumber(textBox4.Text, textBox5.Text, textBox6.Text))
+                {
+                    Intervals intervals = new Intervals(double.Parse(textBox4.Text),
+                                                        double.Parse(textBox5.Text),
+                                                        double.Parse(textBox6.Text));
+                    run(elements, intervals);
+                }
+                else
+                {
+                    MessageBox.Show("Неправильный интервал", "Error!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Неправильные значения", "Error!");
+            }
+        }
+
+        private bool isNumber(string preas, string load, string spead)
+        {
+            Regex regex = new Regex(@"^[0-9,\,]+$");
+            return (regex.IsMatch(preas) && regex.IsMatch(load) && regex.IsMatch(spead));
+        }
+
+        private void run(Elements elements, Intervals intervals)
+        {
+            dataGridView1.Rows.Clear();
             double[] b = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
             for (int i = 1; i < 9; i++)
             {
-                dataGridView1.Rows.Add(i, "+", "-", "-", "-", "-", "-", "-", "-", f[i-1].ToString());
+                dataGridView1.Rows.Add(i, "+", "-", "-", "-", "-", "-", "-", "-", f[i - 1].ToString());
                 b[0] += f[i - 1];
 
                 if (i % 2 == 0)
@@ -121,17 +169,17 @@ namespace Factors
             }
 
             string regression = "y = ";
-            string[] parametrs = {"x1", "x2", "x3", "x1x2", "x1x3", "x2x3", "x1x2x3" };
+            string[] parametrs = { "x1", "x2", "x3", "x1x2", "x1x3", "x2x3", "x1x2x3" };
             for (int i = 0; i < 8; i++)
             {
                 b[i] = Math.Round(b[i] / 8, 8);
                 if (b[i] < 0)
                 {
-                    regression += $"{b[i]}{parametrs[i-1]} ";
+                    regression += $"{b[i]}{parametrs[i - 1]} ";
                 }
                 else if (i > 0)
                 {
-                    regression += $"+{b[i]}{parametrs[i-1]} ";
+                    regression += $"+{b[i]}{parametrs[i - 1]} ";
                 }
                 else
                 {
@@ -141,7 +189,25 @@ namespace Factors
 
 
             MessageBox.Show(regression, "Уравнение регрессии");
-            new AdequacyCheck(b).Show();
+            new AdequacyCheck(b, f, flag, i, y1, y2).Show();
+            button2.Visible = true;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //double[] k = { 0.0051, 0.0073, 0.0047, 0.00467, 0.0132, 0.01105, 0.0178, 0.0077 };
+            //f = k;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new Parametrs(1, f, null).Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
