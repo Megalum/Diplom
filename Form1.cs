@@ -4,6 +4,7 @@ using Microsoft.VisualBasic;
 using System.CodeDom.Compiler;
 using System.Data;
 using System.Text.RegularExpressions;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Factors
 {
@@ -38,15 +39,15 @@ namespace Factors
 
             if (isNumber(textBox1.Text, textBox2.Text, textBox3.Text))
             {
-                Elements elements = new Elements(double.Parse(textBox1.Text),
-                                                 double.Parse(textBox2.Text),
-                                                 double.Parse(textBox3.Text));
+                Elements.Spead = Double.Parse(textBox1.Text);
+                Elements.Press = Double.Parse(textBox3.Text);
+                Elements.Load = Double.Parse(textBox2.Text);
                 if (isNumber(textBox4.Text, textBox5.Text, textBox6.Text))
                 {
-                    Intervals intervals = new Intervals(double.Parse(textBox4.Text),
-                                                        double.Parse(textBox5.Text),
-                                                        double.Parse(textBox6.Text));
-                    run(elements, intervals);
+                    Intervals.Spead = Double.Parse(textBox4.Text);
+                    Intervals.Press = Double.Parse(textBox6.Text);
+                    Intervals.Load = Double.Parse(textBox5.Text);
+                    run();
                 }
                 else
                 {
@@ -65,7 +66,7 @@ namespace Factors
             return (regex.IsMatch(preas) && regex.IsMatch(load) && regex.IsMatch(spead));
         }
 
-        private void run(Elements elements, Intervals intervals)
+        private void run()
         {
             dataGridView1.Rows.Clear();
             double[] b = { 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -169,17 +170,17 @@ namespace Factors
             }
 
             string regression = "y = ";
-            string[] parametrs = { "x1", "x2", "x3", "x1x2", "x1x3", "x2x3", "x1x2x3" };
+            string[] parametrs = { $"X\u2081", $"X\u2082", $"X\u2083", $"X\u2081X\u2082", $"X\u2081X\u2083", $"X\u2082X\u2083", $"X\u2081X\u2082X\u2083" };
             for (int i = 0; i < 8; i++)
             {
                 b[i] = Math.Round(b[i] / 8, 8);
                 if (b[i] < 0)
                 {
-                    regression += $"{b[i]}{parametrs[i - 1]} ";
+                    regression += $"- {b[i].ToString().Substring(1)}{parametrs[i - 1]} ";
                 }
                 else if (i > 0)
                 {
-                    regression += $"+{b[i]}{parametrs[i - 1]} ";
+                    regression += $"+ {b[i]}{parametrs[i - 1]} ";
                 }
                 else
                 {

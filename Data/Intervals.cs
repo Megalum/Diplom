@@ -6,20 +6,10 @@ using System.Threading.Tasks;
 
 namespace Factors.Data
 {
-    internal class Intervals: Factors
+    internal static class Intervals
     {
-        public Intervals()
-        {
-            Press = 0;
-            Load = 0;
-            Spead = 0;
-        }
-
-        public Intervals(double press, double load, double spead)
-        {
-            Press = press;
-            Load = load;
-            Spead = spead;
-        }
+        internal static double Press { get; set; }
+        internal static double Load { get; set; }
+        internal static double Spead { get; set; }
     }
 }

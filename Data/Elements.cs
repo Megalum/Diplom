@@ -6,20 +6,11 @@ using System.Threading.Tasks;
 
 namespace Factors.Data
 {
-    internal class Elements: Factors
+    internal static class Elements
     {
-        public Elements() 
-        {
-            Press = 0;
-            Load = 0;
-            Spead = 0;
-        }
+        internal static double Press { get; set; }
+        internal static double Load { get; set; }
+        internal static double Spead { get; set; }
 
-        public Elements(double press, double load, double spead)
-        {
-            Press = press;
-            Load = load;
-            Spead = spead;
-        }
     }
 }

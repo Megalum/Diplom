@@ -1,5 +1,4 @@
 ﻿using DocumentFormat.OpenXml.Packaging;
-//using Microsoft.Office.Interop.Word;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,13 +6,13 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
-//using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
-//using Word = Microsoft.Office.Interop.Word;
 using DocumentFormat.OpenXml.Wordprocessing;
+using DocumentFormat.OpenXml;
+using Factors.Data;
 
 namespace Factors
 {
@@ -60,6 +59,8 @@ namespace Factors
 
         private void AdequacyCheck_Load(object sender, EventArgs e)
         {
+            string[] upNumber = { $"\u2070", $"\u00B9", $"\u00B2", $"\u00B3", $"\u2074", $"\u2075", $"\u2076", $"\u2077", $"\u2078", $"\u2079" };
+
             double _y = 0;
             for (int i = 1; i < 7; i++)
             {
@@ -82,7 +83,7 @@ namespace Factors
                 key++;
                 read *= 10;
             }
-            label3.Text = $"Дисперсию воспроизводимости эксперимента = {Math.Round(read, 5)} * 10^{-key}";
+            label3.Text = $"Дисперсию воспроизводимости эксперимента = {Math.Round(read, 5)} * 10\u207B";
 
             double t = Math.Abs(_y - b[0]);
             label4.Text = $"Разница оптимизации в центре плана и свободного члена = {Math.Round(t, 5)}";
@@ -184,6 +185,12 @@ namespace Factors
             label18.Text = $"Cумма квадратов = {sum_squares}";
             label19.Text = $"Дисперсия = {variance}";
             label20.Text = $"Расчет значений F-критерия = {number_sort(f_criteria)}";
+
+            label21.Text = "";
+            for (int i = 0; i < 11; i++)
+            {
+                label21.Text += number_sort(b2[i]) + ";";
+            }
         }
 
         private string number_sort(double num)
@@ -198,7 +205,7 @@ namespace Factors
             }
             else if (param > -1 && param < 0)
             {
-                res = "- 0,";
+                res = "-0,";
                 param = Math.Round(param * -10, 6);
             }
             while (param % 10 != 0)
@@ -258,44 +265,106 @@ namespace Factors
 
         private void ExportDataGridViewToWord(DataGridView dgv, string filePath, MainDocumentPart mainPart, Body body)
         {
-                // Создаем таблицу
-                Table table = new Table();
+            // Создаем таблицу
+            Table table = new Table();
 
-                // Создаем строку заголовков
-                TableRow headerRow = new TableRow();
-                foreach (DataGridViewColumn column in dgv.Columns)
-                {
-                    TableCell cell = new TableCell();
-                    cell.Append(new Paragraph(new Run(new Text(column.HeaderText))));
-                    headerRow.Append(cell);
-                }
-                table.Append(headerRow);
+            TableProperties tblProperties = new TableProperties(
+                new TableWidth() { Type = TableWidthUnitValues.Pct, Width = "100%" }
+            );
 
-                // Добавляем строки данных
-                foreach (DataGridViewRow row in dgv.Rows)
+            // Создание границ таблицы
+            TableBorders tableBorders = new TableBorders(
+                new TopBorder() { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12, Space = 0, Color = "000000" },
+                new BottomBorder() { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12, Space = 0, Color = "000000" },
+                new LeftBorder() { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12, Space = 0, Color = "000000" },
+                new RightBorder() { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12, Space = 0, Color = "000000" },
+                new InsideHorizontalBorder() { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12, Space = 0, Color = "000000" },
+                new InsideVerticalBorder() { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12, Space = 0, Color = "000000" }
+            );
+
+            string[] with = { "10%", "10%", "10%", "10%", "10%", "10%", "10%", "10%", "20%" };
+
+            // Добавляем границы к свойствам таблицы
+            tblProperties.Append(tableBorders);
+
+            // Добавляем свойства таблицы к таблице
+            table.AppendChild(tblProperties);
+
+            // Устанавливаем выравнивание по центру
+            TableCellProperties cellProperties = new TableCellProperties(
+                new TableCellVerticalAlignment() { Val = TableVerticalAlignmentValues.Center }
+            );
+
+            // Создаем строку заголовков
+            TableRow headerRow = new TableRow();
+            int i = 0;
+            foreach (DataGridViewColumn column in dgv.Columns)
+            {
+                TableCell cell = new TableCell(
+                    new TableCellProperties(
+                        new TableCellWidth() { Type = TableWidthUnitValues.Pct, Width = with[i++] },    // Установка ширены столбцов
+                        new TableCellVerticalAlignment() { Val = TableVerticalAlignmentValues.Center }  // Верикатьное выравнивание по центру
+                    ),
+                    new Paragraph(
+                        new ParagraphProperties(
+                            new Justification() { Val = JustificationValues.Center },                   // Горизонтальное выравнивание по центру
+                            new SpacingBetweenLines() { After = "0" }                                   // Устанавливаем интервалы
+                        ),
+                        new Run(
+                            new RunProperties(
+                                new Bold(),
+                                new FontSize() { Val = "24" },
+                                new RunFonts() { Ascii = "Times New Roman", HighAnsi = "Times New Roman" }
+                            ),
+                            new Text(column.HeaderText)
+                        )
+                    )
+                );
+                headerRow.Append(cell);
+            }
+            table.Append(headerRow);
+
+            // Добавляем строки данных
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (!row.IsNewRow)  // Исключаем последнюю пустую строку
                 {
-                    if (!row.IsNewRow)  // Исключаем последнюю пустую строку
+                    TableRow dataRow = new TableRow();
+                    foreach (DataGridViewCell cell in row.Cells)
                     {
-                        TableRow dataRow = new TableRow();
-                        foreach (DataGridViewCell cell in row.Cells)
-                        {
-                            TableCell tableCell = new TableCell();
-                            tableCell.Append(new Paragraph(new Run(new Text(cell.Value?.ToString() ?? string.Empty))));
-                            dataRow.Append(tableCell);
-                        }
-                        table.Append(dataRow);
+                        TableCell tableCell = new TableCell(
+                            new TableCellProperties(
+                                new TableCellVerticalAlignment() { Val = TableVerticalAlignmentValues.Center }  // Верикатьное выравнивание по центру
+                            ),
+                            new Paragraph(
+                                new ParagraphProperties(
+                                    new Justification() { Val = JustificationValues.Center },                   // Горизонтальное выравнивание по центру
+                                    new SpacingBetweenLines() { After = "0" }                                   // Устанавливаем интервалы
+                                ),
+                                new Run(
+                                    new RunProperties(
+                                        new FontSize() { Val = "20" },
+                                        new RunFonts() { Ascii = "Times New Roman", HighAnsi = "Times New Roman" }
+                                    ),
+                                    new Text(cell.Value?.ToString() ?? string.Empty)
+                                )
+                            )
+                        );
+                        dataRow.Append(tableCell);
                     }
+                    table.Append(dataRow);
                 }
+            }
 
-                // Добавляем таблицу в тело документа
-                body.Append(table);
+            // Добавляем таблицу в тело документа
+            body.Append(table);
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {           
+        {
             saveFileDialog1.Filter = "Word Documents (*.docx)|*.docx";
             saveFileDialog1.FileName = "export.docx";
-            
+
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 if (!saveFileDialog1.FileName.Equals(string.Empty))
@@ -308,28 +377,182 @@ namespace Factors
                         Body body = new Body();
                         mainPart.Document.Append(body);
 
-                        RunProperties runProperties = new RunProperties();
-                        runProperties.Append(new Bold());
-                        Paragraph paragraph = new Paragraph();
-                        Run run = new Run();
-                        run.Append(runProperties);
-                        run.Append(new Text("Результаты опытов в центре плана"));
-                        paragraph.Append(run);
-                        body.Append(paragraph);
+                        string[] b = { "b0", "b1", "b2", "b3", "b12", "b13", "b23", "b123", "b11", "b22", "b33" };
+                        string[] x = { "", "x1", "x2", "x3", "x1x2", "x1x3", "x2x3", "x1x2x3", "x1^2", "x2^2", "x3^2" };
+
+                        printText("Отчёт", true, 48, "Times New Roman", "center", false, mainPart, body);
+                        printText("", true, 32, "Times New Roman", "center", false, mainPart, body);
+
+                        string text = "Для проверки адекватности полученного уравнения регрессии и определения " +
+                            "дисперсий коэффициентов необходимо знать дисперсию воспроизводимости " +
+                            "эксперимента. Находим ее по результатам шести опытов, поставленных в центре плана";
+                        printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
+
+                        printText("Результаты опытов в центре плана", true, 32, "Times New Roman", "center", false, mainPart, body);
                         ExportDataGridViewToWord(dataGridView1, saveFileDialog1.FileName, mainPart, body);
-                        
-                        paragraph = new Paragraph();
-                        run = new Run();
-                        run.Append(new Text("Результаты опытов в “звездных” точках"));
-                        paragraph.Append(run);
-                        body.Append(paragraph);
+
+                        text = $"Среднее арифметическое значение параметра " +
+                            $"оптимизации в центре плана ={label2.Text.Split('=')[1]}";
+                        printText("", true, 28, "Times New Roman", "center", false, mainPart, body); 
+                        printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
+                        printText(label3.Text, false, 28, "Times New Roman", "boch", true, mainPart, body);
+                        text = $"Разность между значением параметра оптимизации в центр плана и " +
+                            $"величиной свободного члена ={label4.Text.Split('=')[1]}";
+                        printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
+                        text = $"Если полученная разность во много раз превышает ошибку эксперимента:{label5.Text.Split('=')[1]}";
+                        printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
+                        string func = "y = ";
+                        for (int i = 0; i < 11; i++)
+                        {
+                            func += b[i] + x[i];
+                            if (i != 10)
+                            {
+                                func += " + ";
+                            }
+                        }
+                        text = $"Из этого следует, что коэффициенты при квадратичных членах значимо " +
+                            $"отличаются от нуля, а исследуемая зависимость не может быть с достаточной " +
+                            $"точностью аппроксимирована уравнением. То перешли к планированию " +
+                            $"второго порядка и аппроксимировали неизвестную функцию отклика " +
+                            $"полиномом вида: {func}";
+                        printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
+
+
+                        printText("Результаты опытов в “звездных” точках", true, 32, "Times New Roman", "center", false, mainPart, body);
                         ExportDataGridViewToWord(dataGridView2, saveFileDialog1.FileName, mainPart, body);
+                        printText("", false, 28, "Times New Roman", "boch", true, mainPart, body);
+
+                        text = "Дополнили шестью опытами в “звездных” точках. " +
+                            "Величина “звездного” плеча в рассматриваемом случае равна 1,682.";
+                        printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
+                        text = "Для ротатабельного планирования второго порядка важное значение " +
+                            "имеет выбор числа опытов в центре плана, так как число опытов в центре " +
+                            "плана определяет характер распределения получаемой информации о " +
+                            "поверхности отклика. Число опытов в центре плана выбирается таким, чтобы " +
+                            "обеспечивалось так называемое униформ-планирование. Планирование " +
+                            "называется униформ-ротатабельным, если получаемая информация " +
+                            "постоянно остается внутри интервала. Униформ-ротатабельное планирование " +
+                            "возможно, если, некоторая константа, не превышает единицы (немного меньше ее).";
+                        printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
+                        text = "Получили следующие значения коэффициентов:";
+                        printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
+
+                        int k = 0;
+                        text = "";
+                        foreach (string element in label21.Text.Split(';'))
+                        {
+                            text += $"{b[k++]}={element}";
+                            if (k != 11)
+                            {
+                                text += ";      ";
+                            }
+                            else
+                            {
+                                text += ".";
+                                break;
+                            }
+                        }
+                        printText(text, true, 28, "Times New Roman", "both", false, mainPart, body);
+                        text = "После подстановки значений коэффициентов в уравнение оно получило вид:";
+                        printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
+
+                        k = 0;
+                        text = "y = ";
+                        foreach (string element in label21.Text.Split(';'))
+                        {
+                            if (Double.Parse(element) > 0 && k > 0)
+                            {
+                                text += $" + {element}{x[k++]}";
+                            }
+                            else if (Double.Parse(element) < 0 && k > 0)
+                            {
+                                text += $" - {element.Substring(1)}{x[k++]}";
+                            }
+                            else
+                            {
+                                text += $"{element}{x[k++]}";
+                            }                            
+                            if (k == 11)
+                            {
+                                break;
+                            }
+                        }
+                        printText(text, true, 28, "Times New Roman", "center", true, mainPart, body);
+
+                        text = "Дисперсии коэффициентов имеют следующие значения:";
+                        printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
+                        text = "S^2{b0} =" + label7.Text.Split("=")[1] + ";      S^2{bi} = " + label8.Text.Split("=")[1];
+                        printText(text, true, 28, "Times New Roman", "center", false, mainPart, body);
+                        text = "S^2{bil} =" + label9.Text.Split("=")[1] + ";      S^2{bii} = " + label10.Text.Split("=")[1];
+                        printText(text, true, 28, "Times New Roman", "center", false, mainPart, body);
+
+                        text = "Доверительные интервалы для коэффициентов равны:";
+                        printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
+                        text = $"\u0394b0 = \u00B1{label11.Text.Split("= ")[1]}";
+                        printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
+
                         mainPart.Document.Save();
                     }
                     MessageBox.Show("Данные успешно экспортированы в Word файл.");
                 }
             }
 
+        }
+
+        private void printText(string text, bool bold, int size, string style, string justifications, bool identy, MainDocumentPart mainPart, Body body)
+        {
+            ParagraphProperties paragraphProperties = new ParagraphProperties();
+            Run run = new Run();
+
+            //Выравнивание
+            if (justifications == "center")
+            {
+                Justification justification = new Justification() { Val = JustificationValues.Center };
+                paragraphProperties.Append(justification);
+            }
+            else if (justifications == "right")
+            {
+                Justification justification = new Justification() { Val = JustificationValues.Right };
+                paragraphProperties.Append(justification);
+            }
+            else if (justifications == "left")
+            {
+                Justification justification = new Justification() { Val = JustificationValues.Left };
+                paragraphProperties.Append(justification);
+            }
+            else
+            {
+                Justification justification = new Justification() { Val = JustificationValues.Both };
+                paragraphProperties.Append(justification);
+            }
+            Paragraph paragraph = new Paragraph(paragraphProperties);
+
+            // Жирный
+            RunProperties runProperties = new RunProperties();
+            if (bold)
+            {
+                runProperties.Append(new Bold());
+            }
+
+            // Отступ
+            if (identy)
+            {
+                Indentation indentation = new Indentation() { Left = "0", Right = "0", FirstLine = "709" };
+                paragraphProperties.Append(indentation);
+            }
+
+            runProperties.Append(new FontSize() { Val = size.ToString() }); // Размер шрифта
+            runProperties.Append(new RunFonts() { Ascii = style, HighAnsi = style, EastAsia = style, ComplexScript = style }); // Стиль шрифта
+
+            run.Append(runProperties);
+            run.Append(new Text(text));
+            paragraph.Append(run);
+            body.Append(paragraph);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            new Graphics().Show();
         }
     }
 }

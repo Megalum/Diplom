@@ -74,6 +74,8 @@
             button3 = new Button();
             saveFileDialog1 = new SaveFileDialog();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            button5 = new Button();
+            label21 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -406,7 +408,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(324, 887);
+            button1.Location = new Point(290, 887);
             button1.Name = "button1";
             button1.Size = new Size(342, 37);
             button1.TabIndex = 23;
@@ -444,11 +446,33 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // button5
+            // 
+            button5.Location = new Point(34, 887);
+            button5.Name = "button5";
+            button5.Size = new Size(185, 37);
+            button5.TabIndex = 28;
+            button5.Text = "Просмотр графиков";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(914, 9);
+            label21.Name = "label21";
+            label21.Size = new Size(58, 20);
+            label21.TabIndex = 29;
+            label21.Text = "label21";
+            label21.Visible = false;
+            // 
             // AdequacyCheck
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(928, 936);
+            Controls.Add(label21);
+            Controls.Add(button5);
             Controls.Add(button3);
             Controls.Add(button4);
             Controls.Add(button2);
@@ -532,5 +556,7 @@
         private Button button3;
         private SaveFileDialog saveFileDialog1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button button5;
+        private Label label21;
     }
 }
