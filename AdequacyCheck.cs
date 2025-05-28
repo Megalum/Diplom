@@ -77,25 +77,12 @@ namespace Factors
             }
             s1 = s1 / 5;
             double read = s1;
-            int key = 0;
-            while (read < 0.9)
-            {
-                key++;
-                read *= 10;
-            }
-            label3.Text = $"Дисперсию воспроизводимости эксперимента = {Math.Round(read, 5)} * 10\u207B";
+            label3.Text = $"Дисперсию воспроизводимости эксперимента = {number_sub(s1)}";
 
             double t = Math.Abs(_y - b[0]);
             label4.Text = $"Разница оптимизации в центре плана и свободного члена = {Math.Round(t, 5)}";
             double s2 = Math.Sqrt(s1);
-            read = s2;
-            key = 0;
-            while (read < 0.9)
-            {
-                key++;
-                read *= 10;
-            }
-            label5.Text = $"Ошибка эксперемента = {Math.Round(read, 5)} * 10^{-key}";
+            label5.Text = $"Ошибка эксперемента = {number_sub(s2)}";
 
             ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -104,18 +91,18 @@ namespace Factors
 
             int count_experience = 20;
             double[] b2 = { 0.006457, -0.00021, -0.00003708, 0.0005829, 0.00002946, 0.00004172, -0.00001238, -0.000715, 0.0002098, 0.0001978, 0.0001548 };
-            string[] parametrs = { "x1", "x2", "x3", "x1x2", "x1x3", "x2x3", "x1x2x3", "x1^2", "x2^2", "x3^2" };
+            string[] parametrs = { "X\u2081", "X\u2082", "X\u2083", "X\u2081X\u2082", "X\u2081X\u2083", "X\u2082X\u2083", "X\u2081X\u2082X\u2083", $"X\u2081{upNumber[2]}", $"X\u2082{upNumber[2]}", $"X\u2083{upNumber[2]}" };
             double[] s = { 0.0000000001633, 0.00000000004083, -0.000000000005671, -0.000000000002142 };
             double[] b3 = { 0.0001684, 0.00001642, 0.00000612, 0.00000376 };
             double[] b4 = { 2.26, 0.2882, 0.9819, 0.6555, 0.4389 };
-            string[] y4 = { "x1", "x2", "x1^2", "x2^2" };
+            string[] y4 = { "X\u2081", "X\u2082", $"X\u2081{upNumber[2]}", $"X\u2082{upNumber[2]}" };
             double remaining_amount = 0.4102;
             double sum_squares = 0.077284;
             double variance = 0.0333;
             double f_criteria = 0.00002528;
 
 
-            key = 2;
+            int key = 2;
             for (int i = 1; i < 7; i++)
             {
                 dataGridView2.Rows.Add(i + 6, "+", "0", "0", "0", "0", "0", "0", y2[i - 1]);
@@ -153,15 +140,15 @@ namespace Factors
 
             ////////////////////////////////////////////////////////////////////////////////
 
-            label7.Text = $"Дисперсия [b0] = {number_sub(s[0])}";
-            label8.Text = $"Дисперсия [bi] = {number_sub(s[1])}";
-            label9.Text = $"Дисперсия [bil] = {number_sub(s[2])}";
-            label10.Text = $"Дисперсия [bii] = {number_sub(s[3])}";
+            label7.Text = $"Дисперсия [B\u2080] = {number_sub(s[0])}";
+            label8.Text = $"Дисперсия [B\u1D62] = {number_sub(s[1])}";
+            label9.Text = $"Дисперсия [B\u1D62\u2097] = {number_sub(s[2])}";
+            label10.Text = $"Дисперсия [B\u1D62\u1D62] = {number_sub(s[3])}";
 
-            label11.Text = $"Доверительные интервалы b0 = {number_sort(b3[0])}";
-            label12.Text = $"Доверительные интервалы bi = {number_sort(b3[1])}";
-            label13.Text = $"Доверительные интервалы bil = {number_sort(b3[2])}";
-            label14.Text = $"Доверительные интервалы bii = {number_sort(b3[3])}";
+            label11.Text = $"Доверительные интервалы B\u2080 = {number_sort(b3[0])}";
+            label12.Text = $"Доверительные интервалы B\u1D62 = {number_sort(b3[1])}";
+            label13.Text = $"Доверительные интервалы B\u1D62\u2097 = {number_sort(b3[2])}";
+            label14.Text = $"Доверительные интервалы B\u1D62\u1D62 = {number_sort(b3[3])}";
 
             string model = "Y = ";
             for (int i = 0; i < b4.Length; i++)
@@ -191,6 +178,11 @@ namespace Factors
             {
                 label21.Text += number_sort(b2[i]) + ";";
             }
+            label22.Text = "";
+            for (int i = 0; i < 5; i++)
+            {
+                label22.Text += b4[i] + ";";
+            }
         }
 
         private string number_sort(double num)
@@ -219,6 +211,8 @@ namespace Factors
 
         private string number_sub(double num)
         {
+            string[] upNumber = { $"\u2070", $"\u00B9", $"\u00B2", $"\u00B3", $"\u2074", $"\u2075", $"\u2076", $"\u2077", $"\u2078", $"\u2079" };
+
             string res = "";
             double read = num;
 
@@ -240,7 +234,16 @@ namespace Factors
                 }
             }
 
-            res = $"{Math.Round(read, 5)} * 10^-{key}";
+            res = $"{Math.Round(read, 5)} * 10\u207B";
+            if (key > 9)
+            {
+                res += upNumber[key / 10];
+                res += upNumber[key % 10];
+            }
+            else
+            {
+                res += upNumber[key];
+            }
 
             return res;
         }
@@ -377,8 +380,8 @@ namespace Factors
                         Body body = new Body();
                         mainPart.Document.Append(body);
 
-                        string[] b = { "b0", "b1", "b2", "b3", "b12", "b13", "b23", "b123", "b11", "b22", "b33" };
-                        string[] x = { "", "x1", "x2", "x3", "x1x2", "x1x3", "x2x3", "x1x2x3", "x1^2", "x2^2", "x3^2" };
+                        string[] b = { "B\u2080", "B\u2081", "B\u2082", "B\u2083", "B\u2081\u2082", "B\u2081\u2083", "B\u2082\u2083", "B\u2081\u2082\u2083", "B\u2081\u2081", "B\u2082\u2082", "B\u2083\u2083" };
+                        string[] x = { "", "X\u2081", "X\u2082", "X\u2083", "X\u2081X\u2082", "X\u2081X\u2083", "X\u2082X\u2083", "X\u2081X\u2082X\u2083", "X\u2081\u00B2", "X\u2082\u00B2", "X\u2083\u00B2" };
 
                         printText("Отчёт", true, 48, "Times New Roman", "center", false, mainPart, body);
                         printText("", true, 32, "Times New Roman", "center", false, mainPart, body);
@@ -457,7 +460,7 @@ namespace Factors
                         printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
 
                         k = 0;
-                        text = "y = ";
+                        text = "Y = ";
                         foreach (string element in label21.Text.Split(';'))
                         {
                             if (Double.Parse(element) > 0 && k > 0)
@@ -481,15 +484,64 @@ namespace Factors
 
                         text = "Дисперсии коэффициентов имеют следующие значения:";
                         printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
-                        text = "S^2{b0} =" + label7.Text.Split("=")[1] + ";      S^2{bi} = " + label8.Text.Split("=")[1];
+                        text = "S^2{B\u2080} =" + label7.Text.Split("=")[1] + ";      S^2{B\u1D62} = " + label8.Text.Split("=")[1];
                         printText(text, true, 28, "Times New Roman", "center", false, mainPart, body);
-                        text = "S^2{bil} =" + label9.Text.Split("=")[1] + ";      S^2{bii} = " + label10.Text.Split("=")[1];
+                        text = "S^2{B\u1D62\u2097} =" + label9.Text.Split("=")[1] + ";      S^2{B\u1D62\u1D62} = " + label10.Text.Split("=")[1];
                         printText(text, true, 28, "Times New Roman", "center", false, mainPart, body);
 
                         text = "Доверительные интервалы для коэффициентов равны:";
                         printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
-                        text = $"\u0394b0 = \u00B1{label11.Text.Split("= ")[1]}";
+                        text = $"\u0394B\u2080 = \u00B1{label11.Text.Split("= ")[1]}                                                                                                                                                                " +
+                            $"\u0394B\u1D62 = \u00B1{label12.Text.Split("= ")[1]}                                                                                                                                                                   " +
+                            $"\u0394B\u1D62\u2097 = \u00B1{label13.Text.Split("= ")[1]}                                                                                                                                                                   " +
+                            $"\u0394B\u1D62\u1D62 = \u00B1{label14.Text.Split("= ")[1]}";
+                        printText(text, true, 28, "Times New Roman", "center", false, mainPart, body);
+
+                        text = "В связи с тем, что коэффициенты B\u2083, B\u2081\u2082, B\u2081\u2083, " +
+                            "B\u2082\u2083, B\u2081\u2082\u2083, B\u2083\u2083 по абсолютной величине " +
+                            "меньше соответствующих доверительных интервалов, их можно признать " +
+                            "статистически незначимыми и исключить из уравнения регрессии. " +
+                            "Так как среди незначимых оказался и коэффициент B\u2083\u2083 при квадратичном " +
+                            "члене, значимые коэффициенты были пересчитаны с использованием метода " +
+                            "наименьших квадратов. Пересчитанные значения коэффициентов оказались следующими:";
                         printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
+
+                        string[] b2 = { "B\u2080", "B\u2081", "B\u2082", "B\u2081\u2081", "B\u2082\u2082" };
+                        string[] x2 = { "", "X\u2081", "X\u2082", "X\u2081\u00B2", "X\u2082\u00B2" };
+                        text = "";
+                        k = 0;
+                        foreach(string element in label22.Text.Split(';'))
+                        {
+                            text += b2[k++] + " = " + element;
+                            if (k != 5)
+                            {
+                                text += ";  ";
+                            }
+                            else 
+                            { 
+                                text += ".";
+                                break;
+                            }
+                        }
+                        printText(text, true, 28, "Times New Roman", "center", false, mainPart, body);
+                        text = "Таким образом, математическая модель, полученная в результате " +
+                            "ротатабельного планирования второго порядка, приняла вид:";
+                        printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
+                        text = "Y = ";
+                        k = 0;
+                        foreach (string element in label22.Text.Split(';'))
+                        {
+                            text += element + x2[k++];
+                            if (k != 5)
+                            {
+                                text += " + ";
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        printText(text, true, 28, "Times New Roman", "center", false, mainPart, body);
 
                         mainPart.Document.Save();
                     }

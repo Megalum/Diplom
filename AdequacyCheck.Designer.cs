@@ -76,6 +76,7 @@
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             button5 = new Button();
             label21 = new Label();
+            label22 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -466,11 +467,22 @@
             label21.Text = "label21";
             label21.Visible = false;
             // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(914, 9);
+            label22.Name = "label22";
+            label22.Size = new Size(58, 20);
+            label22.TabIndex = 30;
+            label22.Text = "label22";
+            label22.Visible = false;
+            // 
             // AdequacyCheck
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(928, 936);
+            Controls.Add(label22);
             Controls.Add(label21);
             Controls.Add(button5);
             Controls.Add(button3);
@@ -558,5 +570,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Button button5;
         private Label label21;
+        private Label label22;
     }
 }
