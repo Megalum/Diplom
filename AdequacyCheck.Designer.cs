@@ -415,6 +415,7 @@
             button1.TabIndex = 23;
             button1.Text = "Вывод функции отклика полиномом";
             button1.UseVisualStyleBackColor = true;
+            button1.Visible = false;
             button1.Click += button1_Click;
             // 
             // button2

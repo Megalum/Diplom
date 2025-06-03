@@ -250,7 +250,7 @@ namespace Factors
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(write, "Функция отклика полиномом");
+            //MessageBox.Show(write, "Функция отклика полиномом");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -542,6 +542,24 @@ namespace Factors
                             }
                         }
                         printText(text, true, 28, "Times New Roman", "center", false, mainPart, body);
+
+                        text = $"Для проверки адекватности модели нашли дисперсию адекватности:{label19.Text.Split('=')[1]}";
+                        printText(text, false, 28, "Times New Roman", "both", true, mainPart, body);
+                        text = $"Определили расчетное значение F-критерия:{label20.Text.Split('=')[1]}";
+                        printText(text, false, 28, "Times New Roman", "both", true, mainPart, body);
+
+                        text = "При 5%-ном уровне значимости и числах степеней свободы для " +
+                            "числителя 10 и знаменателя 5 табличное значение критерия 1 равно 4,74. " +
+                            "Значение F\u209A > F\u209C, поэтому модель следует признать адекватной.";
+                        printText(text, false, 28, "Times New Roman", "both", true, mainPart, body);
+                        text = "Поиск оптимальных условий исследуемого процесса при небольшом " +
+                            "числе k влияющих факторов можно упростить, анализируя поверхность " +
+                            "отклика в области оптимума графоаналитическим методом с помощью " +
+                            "двумерных сечений. Исходное уравнение регрессии в этом случае сводят к " +
+                            "уравнению с двумя факторами, стабилизируя остальные на постоянных " +
+                            "уровнях. Этим способом можно получить представление о влиянии каждой " +
+                            "пары факторов на параметр оптимизации.";
+                        printText(text, false, 28, "Times New Roman", "both", true, mainPart, body);
 
                         mainPart.Document.Save();
                     }
