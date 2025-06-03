@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
             textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
             button1 = new Button();
             dataGridView1 = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
@@ -46,76 +44,100 @@
             Column8 = new DataGridViewTextBoxColumn();
             Column9 = new DataGridViewTextBoxColumn();
             Column10 = new DataGridViewTextBoxColumn();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
             button2 = new Button();
+            groupBox1 = new GroupBox();
+            groupBox4 = new GroupBox();
+            label4 = new Label();
+            textBox3 = new TextBox();
+            textBox6 = new TextBox();
+            groupBox2 = new GroupBox();
+            label7 = new Label();
+            groupBox3 = new GroupBox();
+            label1 = new Label();
+            textBox2 = new TextBox();
+            textBox5 = new TextBox();
+            groupBox5 = new GroupBox();
+            textBox7 = new TextBox();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            groupBox1.SuspendLayout();
+            groupBox4.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
+            groupBox5.SuspendLayout();
             SuspendLayout();
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(119, 67);
+            textBox1.Location = new Point(17, 21);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
+            textBox1.PlaceholderText = "Скорость";
+            textBox1.Size = new Size(99, 26);
             textBox1.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(119, 100);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 1;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(119, 133);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
-            textBox3.TabIndex = 2;
+            textBox1.TextAlign = HorizontalAlignment.Center;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(347, 67);
+            textBox4.Location = new Point(142, 21);
+            textBox4.Margin = new Padding(3, 2, 3, 2);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(125, 27);
+            textBox4.PlaceholderText = "Интервал";
+            textBox4.Size = new Size(99, 26);
             textBox4.TabIndex = 3;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(347, 100);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(125, 27);
-            textBox5.TabIndex = 4;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(347, 133);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(125, 27);
-            textBox6.TabIndex = 5;
+            textBox4.TextAlign = HorizontalAlignment.Center;
             // 
             // button1
             // 
-            button1.Location = new Point(186, 198);
+            button1.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            button1.Location = new Point(67, 259);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(179, 67);
+            button1.Size = new Size(254, 35);
             button1.TabIndex = 6;
-            button1.Text = "Выполнить";
+            button1.Text = "Начать эксперимент";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10 });
-            dataGridView1.Location = new Point(521, 12);
+            dataGridView1.Location = new Point(402, 12);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(573, 451);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersWidth = 50;
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridView1.RowTemplate.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.RowTemplate.DefaultCellStyle.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            dataGridView1.RowTemplate.ReadOnly = true;
+            dataGridView1.RowTemplate.Resizable = DataGridViewTriState.False;
+            dataGridView1.ScrollBars = ScrollBars.None;
+            dataGridView1.Size = new Size(522, 206);
             dataGridView1.TabIndex = 7;
             // 
             // Column1
@@ -188,107 +210,210 @@
             Column10.Name = "Column10";
             Column10.Width = 125;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 70);
-            label1.Name = "label1";
-            label1.Size = new Size(76, 20);
-            label1.TabIndex = 8;
-            label1.Text = "Скорость:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 103);
-            label2.Name = "label2";
-            label2.Size = new Size(75, 20);
-            label2.TabIndex = 9;
-            label2.Text = "Нагрузка:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 136);
-            label3.Name = "label3";
-            label3.Size = new Size(80, 20);
-            label3.TabIndex = 10;
-            label3.Text = "Давление:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(265, 70);
-            label4.Name = "label4";
-            label4.Size = new Size(76, 20);
-            label4.TabIndex = 11;
-            label4.Text = "Интервал";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(265, 103);
-            label5.Name = "label5";
-            label5.Size = new Size(76, 20);
-            label5.TabIndex = 12;
-            label5.Text = "Интервал";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(265, 136);
-            label6.Name = "label6";
-            label6.Size = new Size(76, 20);
-            label6.TabIndex = 13;
-            label6.Text = "Интервал";
-            // 
             // button2
             // 
-            button2.Location = new Point(186, 318);
+            button2.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            button2.Location = new Point(67, 310);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(179, 67);
+            button2.Size = new Size(254, 35);
             button2.TabIndex = 14;
-            button2.Text = "Изменить\r\nзначения";
+            button2.Text = "Изменить значения";
             button2.UseVisualStyleBackColor = true;
             button2.Visible = false;
             button2.Click += button2_Click;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(groupBox4);
+            groupBox1.Controls.Add(groupBox2);
+            groupBox1.Controls.Add(groupBox3);
+            groupBox1.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
+            groupBox1.Location = new Point(16, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(363, 240);
+            groupBox1.TabIndex = 15;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Задайте значения эксперимента";
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(label4);
+            groupBox4.Controls.Add(textBox3);
+            groupBox4.Controls.Add(textBox6);
+            groupBox4.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            groupBox4.Location = new Point(45, 160);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(260, 60);
+            groupBox4.TabIndex = 18;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "Давление и интервал";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label4.Location = new Point(122, 27);
+            label4.Name = "label4";
+            label4.Size = new Size(14, 19);
+            label4.TabIndex = 4;
+            label4.Text = ":";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(17, 21);
+            textBox3.Margin = new Padding(3, 2, 3, 2);
+            textBox3.Name = "textBox3";
+            textBox3.PlaceholderText = "Давление";
+            textBox3.Size = new Size(99, 26);
+            textBox3.TabIndex = 0;
+            textBox3.TextAlign = HorizontalAlignment.Center;
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(142, 21);
+            textBox6.Margin = new Padding(3, 2, 3, 2);
+            textBox6.Name = "textBox6";
+            textBox6.PlaceholderText = "Интервал";
+            textBox6.Size = new Size(99, 26);
+            textBox6.TabIndex = 3;
+            textBox6.TextAlign = HorizontalAlignment.Center;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(label7);
+            groupBox2.Controls.Add(textBox1);
+            groupBox2.Controls.Add(textBox4);
+            groupBox2.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            groupBox2.Location = new Point(45, 28);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(260, 60);
+            groupBox2.TabIndex = 16;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Скорость и интервал";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label7.Location = new Point(122, 27);
+            label7.Name = "label7";
+            label7.Size = new Size(14, 19);
+            label7.TabIndex = 4;
+            label7.Text = ":";
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(label1);
+            groupBox3.Controls.Add(textBox2);
+            groupBox3.Controls.Add(textBox5);
+            groupBox3.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            groupBox3.Location = new Point(45, 94);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(260, 60);
+            groupBox3.TabIndex = 17;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Нагрузка и интервал";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label1.Location = new Point(122, 27);
+            label1.Name = "label1";
+            label1.Size = new Size(14, 19);
+            label1.TabIndex = 4;
+            label1.Text = ":";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(17, 21);
+            textBox2.Margin = new Padding(3, 2, 3, 2);
+            textBox2.Name = "textBox2";
+            textBox2.PlaceholderText = "Нагрузка";
+            textBox2.Size = new Size(99, 26);
+            textBox2.TabIndex = 0;
+            textBox2.TextAlign = HorizontalAlignment.Center;
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(142, 21);
+            textBox5.Margin = new Padding(3, 2, 3, 2);
+            textBox5.Name = "textBox5";
+            textBox5.PlaceholderText = "Интервал";
+            textBox5.Size = new Size(99, 26);
+            textBox5.TabIndex = 3;
+            textBox5.TextAlign = HorizontalAlignment.Center;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(textBox7);
+            groupBox5.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            groupBox5.Location = new Point(402, 232);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(522, 72);
+            groupBox5.TabIndex = 16;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "Уравнение регрессии";
+            // 
+            // textBox7
+            // 
+            textBox7.BackColor = SystemColors.Control;
+            textBox7.BorderStyle = BorderStyle.None;
+            textBox7.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            textBox7.Location = new Point(6, 25);
+            textBox7.Multiline = true;
+            textBox7.Name = "textBox7";
+            textBox7.ReadOnly = true;
+            textBox7.Size = new Size(501, 37);
+            textBox7.TabIndex = 0;
+            textBox7.TextAlign = HorizontalAlignment.Center;
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            button3.Location = new Point(484, 310);
+            button3.Name = "button3";
+            button3.Size = new Size(353, 35);
+            button3.TabIndex = 17;
+            button3.Text = "Посмотреть отчет о ходе экспримента";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click_1;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1169, 514);
+            ClientSize = new Size(939, 361);
+            Controls.Add(button3);
+            Controls.Add(groupBox5);
+            Controls.Add(groupBox1);
             Controls.Add(button2);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(button1);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Calculation of experimental results";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
         private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
         private Button button1;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn Column1;
@@ -301,12 +426,20 @@
         private DataGridViewTextBoxColumn Column8;
         private DataGridViewTextBoxColumn Column9;
         private DataGridViewTextBoxColumn Column10;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
         private Button button2;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
+        private Label label7;
+        private GroupBox groupBox4;
+        private Label label4;
+        private TextBox textBox3;
+        private TextBox textBox6;
+        private GroupBox groupBox3;
+        private Label label1;
+        private TextBox textBox2;
+        private TextBox textBox5;
+        private GroupBox groupBox5;
+        private Button button3;
+        private TextBox textBox7;
     }
 }
