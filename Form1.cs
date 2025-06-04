@@ -221,5 +221,10 @@ namespace Factors
         {
             new AdequacyCheck(ratioArray, f, flag, i, y1, y2).Show();
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

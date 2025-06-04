@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Office.SpreadSheetML.Y2023.MsForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -109,17 +110,40 @@ namespace Factors
         {
             if (table == 1)
             {
-                label7.Visible = true;
-                label8.Visible = true;
-                textBox7.Visible = true;
-                textBox8.Visible = true;
+                panel4.Visible = true;
             }
             else if (table == 2 || table == 3)
             {
-                label7.Visible = false;
-                label8.Visible = false;
-                textBox7.Visible = false;
-                textBox8.Visible = false;
+                panel4.Visible = false;
+                button1.Location = new Point(127,186);
+                this.Height = 280;
+            }
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Parametrs_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            bool formIsOpen = false;
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is Form1)
+                {
+                    if (form.Visible)
+                    {
+                        formIsOpen = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!formIsOpen)
+            {
+                new Form1().Show();
             }
         }
     }
