@@ -67,6 +67,8 @@ namespace Factors
                 dataGridView1.Rows.Add(i, "+", "0", "0", "0", "0", "0", "0", y[i - 1]);
                 _y += y[i - 1];
             }
+            dataGridView1.Height = dataGridView1.Rows.GetRowsHeight(DataGridViewElementStates.Visible) +
+         dataGridView1.ColumnHeadersHeight;
             _y = _y / 6;
             label2.Text = $"Параметр оптимизации в центре плана = {Math.Round(_y, 5)}";
 
@@ -118,6 +120,10 @@ namespace Factors
                     dataGridView2.Rows[i - 1].Cells[key + 3].Value = $"{Math.Round(Math.Pow(stars, 2), 3)}";
                 }
             }
+            dataGridView2.Height = dataGridView2.Rows.GetRowsHeight(DataGridViewElementStates.Visible) +
+dataGridView2.ColumnHeadersHeight;
+            dataGridView1.ClearSelection();
+            dataGridView2.ClearSelection();
 
             ////////////////////////////////////////////////////////////////////////////////
 
@@ -140,15 +146,15 @@ namespace Factors
 
             ////////////////////////////////////////////////////////////////////////////////
 
-            label7.Text = $"Дисперсия [B\u2080] = {number_sub(s[0])}";
-            label8.Text = $"Дисперсия [B\u1D62] = {number_sub(s[1])}";
-            label9.Text = $"Дисперсия [B\u1D62\u2097] = {number_sub(s[2])}";
-            label10.Text = $"Дисперсия [B\u1D62\u1D62] = {number_sub(s[3])}";
+            label7.Text = $"[B\u2080] = {number_sub(s[0])}";
+            label8.Text = $"[B\u1D62] = {number_sub(s[1])}";
+            label9.Text = $"[B\u1D62\u2097] = {number_sub(s[2])}";
+            label10.Text = $"[B\u1D62\u1D62] = {number_sub(s[3])}";
 
-            label11.Text = $"Доверительные интервалы B\u2080 = {number_sort(b3[0])}";
-            label12.Text = $"Доверительные интервалы B\u1D62 = {number_sort(b3[1])}";
-            label13.Text = $"Доверительные интервалы B\u1D62\u2097 = {number_sort(b3[2])}";
-            label14.Text = $"Доверительные интервалы B\u1D62\u1D62 = {number_sort(b3[3])}";
+            label11.Text = $"B\u2080 = {number_sort(b3[0])}";
+            label12.Text = $"B\u1D62 = {number_sort(b3[1])}";
+            label13.Text = $"B\u1D62\u2097 = {number_sort(b3[2])}";
+            label14.Text = $"B\u1D62\u1D62 = {number_sort(b3[3])}";
 
             string model = "Y = ";
             for (int i = 0; i < b4.Length; i++)

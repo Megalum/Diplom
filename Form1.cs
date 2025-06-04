@@ -172,6 +172,7 @@ namespace Factors
             }
             dataGridView1.Height = dataGridView1.Rows.GetRowsHeight(DataGridViewElementStates.Visible) +
                      dataGridView1.ColumnHeadersHeight;
+            dataGridView1.ClearSelection();
 
             string regression = "y = ";
             string[] parametrs = { $"X\u2081", $"X\u2082", $"X\u2083", $"X\u2081X\u2082", $"X\u2081X\u2083", $"X\u2082X\u2083", $"X\u2081X\u2082X\u2083" };
