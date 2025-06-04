@@ -43,32 +43,38 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            groupBox1 = new GroupBox();
-            groupBox2 = new GroupBox();
-            groupBox3 = new GroupBox();
             chart5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             button1 = new Button();
-            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)chart2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)chart3).BeginInit();
-            groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
-            groupBox3.SuspendLayout();
+            panel1 = new Panel();
+            label1 = new Label();
+            panel2 = new Panel();
+            chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            label2 = new Label();
+            panel3 = new Panel();
+            chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)chart5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chart4).BeginInit();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chart2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chart3).BeginInit();
             SuspendLayout();
             // 
-            // chart1
+            // chart5
             // 
+            chart5.BackColor = Color.Transparent;
             chartArea1.BackColor = Color.PaleGoldenrod;
             chartArea1.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea1);
-            chart1.Location = new Point(23, 30);
-            chart1.Name = "chart1";
+            chart5.ChartAreas.Add(chartArea1);
+            chart5.Enabled = false;
+            chart5.Location = new Point(16, 42);
+            chart5.Margin = new Padding(3, 2, 3, 2);
+            chart5.Name = "chart5";
             series1.BorderWidth = 2;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -79,19 +85,22 @@
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series2.Color = Color.Navy;
             series2.Name = "Series2";
-            chart1.Series.Add(series1);
-            chart1.Series.Add(series2);
-            chart1.Size = new Size(393, 266);
-            chart1.TabIndex = 0;
-            chart1.Text = "chart1";
+            chart5.Series.Add(series1);
+            chart5.Series.Add(series2);
+            chart5.Size = new Size(429, 240);
+            chart5.TabIndex = 3;
+            chart5.Text = "chart5";
             // 
-            // chart2
+            // chart4
             // 
+            chart4.BackColor = Color.Transparent;
             chartArea2.BackColor = Color.PaleGoldenrod;
             chartArea2.Name = "ChartArea1";
-            chart2.ChartAreas.Add(chartArea2);
-            chart2.Location = new Point(452, 30);
-            chart2.Name = "chart2";
+            chart4.ChartAreas.Add(chartArea2);
+            chart4.Enabled = false;
+            chart4.Location = new Point(461, 42);
+            chart4.Margin = new Padding(3, 2, 3, 2);
+            chart4.Name = "chart4";
             series3.BorderWidth = 2;
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -102,19 +111,70 @@
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series4.Color = Color.Navy;
             series4.Name = "Series2";
-            chart2.Series.Add(series3);
-            chart2.Series.Add(series4);
-            chart2.Size = new Size(393, 266);
-            chart2.TabIndex = 1;
-            chart2.Text = "chart2";
+            chart4.Series.Add(series3);
+            chart4.Series.Add(series4);
+            chart4.Size = new Size(429, 240);
+            chart4.TabIndex = 2;
+            chart4.Text = "chart4";
             // 
-            // chart3
+            // button1
             // 
+            button1.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            button1.Location = new Point(628, 755);
+            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Name = "button1";
+            button1.Size = new Size(302, 54);
+            button1.TabIndex = 10;
+            button1.Text = "Закрыть окно";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.ControlLightLight;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(chart4);
+            panel1.Controls.Add(chart5);
+            panel1.Controls.Add(label1);
+            panel1.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            panel1.Location = new Point(25, 317);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(905, 290);
+            panel1.TabIndex = 11;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(160, 18);
+            label1.Name = "label1";
+            label1.RightToLeft = RightToLeft.No;
+            label1.Size = new Size(532, 22);
+            label1.TabIndex = 0;
+            label1.Text = "Влияние нагрузки на коэффициент сопротивления качению";
+            // 
+            // panel2
+            // 
+            panel2.BackColor = SystemColors.ControlLightLight;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(chart2);
+            panel2.Controls.Add(chart1);
+            panel2.Controls.Add(label2);
+            panel2.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            panel2.Location = new Point(25, 11);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(905, 290);
+            panel2.TabIndex = 12;
+            // 
+            // chart2
+            // 
+            chart2.BackColor = Color.Transparent;
             chartArea3.BackColor = Color.PaleGoldenrod;
             chartArea3.Name = "ChartArea1";
-            chart3.ChartAreas.Add(chartArea3);
-            chart3.Location = new Point(16, 63);
-            chart3.Name = "chart3";
+            chart2.ChartAreas.Add(chartArea3);
+            chart2.Enabled = false;
+            chart2.Location = new Point(461, 42);
+            chart2.Margin = new Padding(3, 2, 3, 2);
+            chart2.Name = "chart2";
             series5.BorderWidth = 2;
             series5.ChartArea = "ChartArea1";
             series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -125,54 +185,22 @@
             series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series6.Color = Color.Navy;
             series6.Name = "Series2";
-            chart3.Series.Add(series5);
-            chart3.Series.Add(series6);
-            chart3.Size = new Size(393, 266);
-            chart3.TabIndex = 2;
-            chart3.Text = "chart3";
+            chart2.Series.Add(series5);
+            chart2.Series.Add(series6);
+            chart2.Size = new Size(429, 240);
+            chart2.TabIndex = 2;
+            chart2.Text = "chart6";
             // 
-            // groupBox1
+            // chart1
             // 
-            groupBox1.Controls.Add(chart1);
-            groupBox1.Controls.Add(chart2);
-            groupBox1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            groupBox1.Location = new Point(18, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(881, 315);
-            groupBox1.TabIndex = 6;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Влияние скорости на коэффициент сопротивления качению";
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(chart3);
-            groupBox2.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            groupBox2.Location = new Point(919, 144);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(424, 355);
-            groupBox2.TabIndex = 7;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Влияние давления на коэффициент сопротивления качению";
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(chart5);
-            groupBox3.Controls.Add(chart4);
-            groupBox3.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            groupBox3.Location = new Point(18, 362);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(881, 315);
-            groupBox3.TabIndex = 8;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Влияние нагрузки на коэффициент сопротивления качению";
-            // 
-            // chart5
-            // 
+            chart1.BackColor = Color.Transparent;
             chartArea4.BackColor = Color.PaleGoldenrod;
             chartArea4.Name = "ChartArea1";
-            chart5.ChartAreas.Add(chartArea4);
-            chart5.Location = new Point(23, 33);
-            chart5.Name = "chart5";
+            chart1.ChartAreas.Add(chartArea4);
+            chart1.Enabled = false;
+            chart1.Location = new Point(16, 42);
+            chart1.Margin = new Padding(3, 2, 3, 2);
+            chart1.Name = "chart1";
             series7.BorderWidth = 2;
             series7.ChartArea = "ChartArea1";
             series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -183,19 +211,44 @@
             series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series8.Color = Color.Navy;
             series8.Name = "Series2";
-            chart5.Series.Add(series7);
-            chart5.Series.Add(series8);
-            chart5.Size = new Size(393, 266);
-            chart5.TabIndex = 3;
-            chart5.Text = "chart5";
+            chart1.Series.Add(series7);
+            chart1.Series.Add(series8);
+            chart1.Size = new Size(429, 240);
+            chart1.TabIndex = 3;
+            chart1.Text = "chart7";
             // 
-            // chart4
+            // label2
             // 
+            label2.AutoSize = true;
+            label2.Location = new Point(160, 18);
+            label2.Name = "label2";
+            label2.RightToLeft = RightToLeft.No;
+            label2.Size = new Size(538, 22);
+            label2.TabIndex = 0;
+            label2.Text = "Влияние скорости на коэффициент сопротивления качению";
+            // 
+            // panel3
+            // 
+            panel3.BackColor = SystemColors.ControlLightLight;
+            panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(chart3);
+            panel3.Controls.Add(label3);
+            panel3.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            panel3.Location = new Point(25, 626);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(579, 290);
+            panel3.TabIndex = 13;
+            // 
+            // chart3
+            // 
+            chart3.BackColor = Color.Transparent;
             chartArea5.BackColor = Color.PaleGoldenrod;
             chartArea5.Name = "ChartArea1";
-            chart4.ChartAreas.Add(chartArea5);
-            chart4.Location = new Point(452, 33);
-            chart4.Name = "chart4";
+            chart3.ChartAreas.Add(chartArea5);
+            chart3.Enabled = false;
+            chart3.Location = new Point(61, 42);
+            chart3.Margin = new Padding(3, 2, 3, 2);
+            chart3.Name = "chart3";
             series9.BorderWidth = 2;
             series9.ChartArea = "ChartArea1";
             series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -206,56 +259,64 @@
             series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series10.Color = Color.Navy;
             series10.Name = "Series2";
-            chart4.Series.Add(series9);
-            chart4.Series.Add(series10);
-            chart4.Size = new Size(393, 266);
-            chart4.TabIndex = 2;
-            chart4.Text = "chart4";
+            chart3.Series.Add(series9);
+            chart3.Series.Add(series10);
+            chart3.Size = new Size(429, 240);
+            chart3.TabIndex = 4;
+            chart3.Text = "chart3";
             // 
-            // button1
+            // label3
             // 
-            button1.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            button1.Location = new Point(994, 553);
-            button1.Name = "button1";
-            button1.Size = new Size(298, 72);
-            button1.TabIndex = 10;
-            button1.Text = "Закрыть";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            label3.AutoSize = true;
+            label3.Location = new Point(26, 18);
+            label3.Name = "label3";
+            label3.RightToLeft = RightToLeft.No;
+            label3.Size = new Size(535, 22);
+            label3.TabIndex = 0;
+            label3.Text = "Влияние давления на коэффициент сопротивления качению";
             // 
             // Graphics
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1355, 692);
+            ClientSize = new Size(954, 931);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Controls.Add(button1);
-            Controls.Add(groupBox3);
-            Controls.Add(groupBox2);
-            Controls.Add(groupBox1);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
             Name = "Graphics";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Просмотр графиков";
             Load += Graphics_Load;
-            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)chart2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)chart3).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox2.ResumeLayout(false);
-            groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)chart5).EndInit();
             ((System.ComponentModel.ISupportInitialize)chart4).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)chart2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)chart3).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
-        private GroupBox groupBox1;
-        private GroupBox groupBox2;
-        private GroupBox groupBox3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
         private Button button1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart5;
+        private Panel panel1;
+        private Label label1;
+        private Panel panel2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private Label label2;
+        private Panel panel3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
+        private Label label3;
     }
 }

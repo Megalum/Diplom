@@ -221,7 +221,6 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(440, 50);
             panel4.TabIndex = 20;
-            panel4.Paint += panel4_Paint;
             // 
             // textBox7
             // 
@@ -270,8 +269,11 @@
             Controls.Add(panel1);
             Controls.Add(button1);
             Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
             Name = "Parametrs";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Изменить значения эксперимента";
             FormClosed += Parametrs_FormClosed;
             Load += Parametrs_Load;
