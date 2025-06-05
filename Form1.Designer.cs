@@ -75,7 +75,6 @@
             textBox1.PlaceholderText = "Скорость";
             textBox1.Size = new Size(99, 26);
             textBox1.TabIndex = 0;
-            textBox1.Text = "1";
             textBox1.TextAlign = HorizontalAlignment.Center;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -87,7 +86,6 @@
             textBox4.PlaceholderText = "Интервал";
             textBox4.Size = new Size(99, 26);
             textBox4.TabIndex = 3;
-            textBox4.Text = "1";
             textBox4.TextAlign = HorizontalAlignment.Center;
             // 
             // button1
@@ -270,7 +268,6 @@
             textBox3.PlaceholderText = "Давление";
             textBox3.Size = new Size(99, 26);
             textBox3.TabIndex = 0;
-            textBox3.Text = "1";
             textBox3.TextAlign = HorizontalAlignment.Center;
             // 
             // textBox6
@@ -281,7 +278,6 @@
             textBox6.PlaceholderText = "Интервал";
             textBox6.Size = new Size(99, 26);
             textBox6.TabIndex = 3;
-            textBox6.Text = "1";
             textBox6.TextAlign = HorizontalAlignment.Center;
             // 
             // groupBox2
@@ -338,7 +334,6 @@
             textBox2.PlaceholderText = "Нагрузка";
             textBox2.Size = new Size(99, 26);
             textBox2.TabIndex = 0;
-            textBox2.Text = "1";
             textBox2.TextAlign = HorizontalAlignment.Center;
             // 
             // textBox5
@@ -349,7 +344,6 @@
             textBox5.PlaceholderText = "Интервал";
             textBox5.Size = new Size(99, 26);
             textBox5.TabIndex = 3;
-            textBox5.Text = "1";
             textBox5.TextAlign = HorizontalAlignment.Center;
             // 
             // groupBox5

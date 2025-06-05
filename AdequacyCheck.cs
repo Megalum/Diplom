@@ -143,6 +143,7 @@ dataGridView2.ColumnHeadersHeight;
                     write += $"{number_sort(b2[i])} ";
                 }
             }
+            textBox7.Text = write;
 
             ////////////////////////////////////////////////////////////////////////////////
 

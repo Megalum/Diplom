@@ -48,7 +48,6 @@
             label8 = new Label();
             label9 = new Label();
             label10 = new Label();
-            button1 = new Button();
             button2 = new Button();
             button4 = new Button();
             button3 = new Button();
@@ -95,6 +94,8 @@
             groupBox5 = new GroupBox();
             label16 = new Label();
             panel9 = new Panel();
+            groupBox4 = new GroupBox();
+            textBox7 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             panel1.SuspendLayout();
@@ -112,6 +113,7 @@
             groupBox1.SuspendLayout();
             groupBox5.SuspendLayout();
             panel9.SuspendLayout();
+            groupBox4.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
@@ -132,7 +134,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10 });
             dataGridView1.Enabled = false;
-            dataGridView1.Location = new Point(20, 34);
+            dataGridView1.Location = new Point(20, 27);
             dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
@@ -280,25 +282,13 @@
             label10.TabIndex = 12;
             label10.Text = "label10";
             // 
-            // button1
-            // 
-            button1.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            button1.Location = new Point(226, 7);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(299, 28);
-            button1.TabIndex = 23;
-            button1.Text = "Вывод функции 'отклика' полиномом";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // button2
             // 
             button2.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            button2.Location = new Point(20, 210);
+            button2.Location = new Point(20, 199);
             button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(727, 28);
+            button2.Size = new Size(727, 25);
             button2.TabIndex = 24;
             button2.Text = "Изменить значения для данного опыта";
             button2.UseVisualStyleBackColor = true;
@@ -307,10 +297,10 @@
             // button4
             // 
             button4.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            button4.Location = new Point(21, 218);
+            button4.Location = new Point(20, 209);
             button4.Margin = new Padding(3, 2, 3, 2);
             button4.Name = "button4";
-            button4.Size = new Size(727, 25);
+            button4.Size = new Size(728, 25);
             button4.TabIndex = 26;
             button4.Text = "Изменить значения для данного опыта";
             button4.UseVisualStyleBackColor = true;
@@ -319,7 +309,7 @@
             // button3
             // 
             button3.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            button3.Location = new Point(584, 7);
+            button3.Location = new Point(171, 7);
             button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
             button3.Size = new Size(162, 28);
@@ -378,7 +368,7 @@
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9 });
             dataGridView2.Enabled = false;
-            dataGridView2.Location = new Point(21, 46);
+            dataGridView2.Location = new Point(21, 37);
             dataGridView2.Margin = new Padding(3, 2, 3, 2);
             dataGridView2.MultiSelect = false;
             dataGridView2.Name = "dataGridView2";
@@ -472,9 +462,9 @@
             panel1.Controls.Add(dataGridView1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(button2);
-            panel1.Location = new Point(12, 24);
+            panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(768, 449);
+            panel1.Size = new Size(768, 425);
             panel1.TabIndex = 31;
             // 
             // panel2
@@ -484,7 +474,7 @@
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(panel3);
-            panel2.Location = new Point(20, 243);
+            panel2.Location = new Point(21, 227);
             panel2.Name = "panel2";
             panel2.Size = new Size(727, 188);
             panel2.TabIndex = 25;
@@ -560,13 +550,14 @@
             // 
             // panel7
             // 
+            panel7.BorderStyle = BorderStyle.FixedSingle;
             panel7.Controls.Add(label23);
             panel7.Controls.Add(dataGridView2);
             panel7.Controls.Add(panel8);
             panel7.Controls.Add(button4);
-            panel7.Location = new Point(12, 479);
+            panel7.Location = new Point(12, 443);
             panel7.Name = "panel7";
-            panel7.Size = new Size(768, 441);
+            panel7.Size = new Size(768, 425);
             panel7.TabIndex = 32;
             // 
             // label23
@@ -588,9 +579,9 @@
             panel8.Controls.Add(groupBox6);
             panel8.Controls.Add(groupBox1);
             panel8.Controls.Add(groupBox5);
-            panel8.Location = new Point(21, 251);
+            panel8.Location = new Point(21, 239);
             panel8.Name = "panel8";
-            panel8.Size = new Size(727, 175);
+            panel8.Size = new Size(727, 174);
             panel8.TabIndex = 23;
             // 
             // groupBox7
@@ -758,25 +749,48 @@
             // 
             // panel9
             // 
-            panel9.BorderStyle = BorderStyle.Fixed3D;
             panel9.Controls.Add(button5);
-            panel9.Controls.Add(button1);
             panel9.Controls.Add(button3);
-            panel9.Location = new Point(12, 935);
+            panel9.Location = new Point(440, 938);
             panel9.Name = "panel9";
-            panel9.Size = new Size(768, 45);
+            panel9.Size = new Size(341, 45);
             panel9.TabIndex = 33;
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(textBox7);
+            groupBox4.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            groupBox4.Location = new Point(12, 874);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(768, 65);
+            groupBox4.TabIndex = 34;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "Функция 'отклика' полиномом";
+            // 
+            // textBox7
+            // 
+            textBox7.BackColor = SystemColors.Control;
+            textBox7.BorderStyle = BorderStyle.None;
+            textBox7.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            textBox7.Location = new Point(6, 21);
+            textBox7.Multiline = true;
+            textBox7.Name = "textBox7";
+            textBox7.ReadOnly = true;
+            textBox7.Size = new Size(756, 37);
+            textBox7.TabIndex = 0;
+            textBox7.TextAlign = HorizontalAlignment.Center;
             // 
             // AdequacyCheck
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(793, 996);
+            ClientSize = new Size(793, 982);
+            Controls.Add(groupBox4);
+            Controls.Add(label22);
+            Controls.Add(label21);
             Controls.Add(panel9);
             Controls.Add(panel7);
             Controls.Add(panel1);
-            Controls.Add(label22);
-            Controls.Add(label21);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
@@ -813,6 +827,8 @@
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
             panel9.ResumeLayout(false);
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -840,7 +856,6 @@
         private Label label14;
         private GroupBox groupBox5;
         private Label label13;
-        private Button button1;
         private Button button2;
         private Button button4;
         private Button button3;
@@ -884,5 +899,7 @@
         private Label label20;
         private Panel panel8;
         private Panel panel9;
+        private GroupBox groupBox4;
+        private TextBox textBox7;
     }
 }
