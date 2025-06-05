@@ -10,13 +10,14 @@ namespace Factors
 {
     public partial class Form1 : Form
     {
+        internal double[] ratioArray = [0, 0, 0, 0, 0, 0, 0, 0];
         public Form1()
         {
             InitializeComponent();
             double[] k = { 0.0051, 0.0073, 0.0047, 0.00467, 0.0132, 0.01105, 0.0178, 0.0077 };
-            f = k; 
+            f = k;
             flag = false;
-        }        
+        }
 
         public Form1(double[] y, bool flag, byte i, double[] y1, double[] y2)
         {
@@ -47,6 +48,8 @@ namespace Factors
                     Intervals.Spead = Double.Parse(textBox4.Text);
                     Intervals.Press = Double.Parse(textBox6.Text);
                     Intervals.Load = Double.Parse(textBox5.Text);
+                    this.Width = 955;
+                    this.Height = 400;
                     run();
                 }
                 else
@@ -69,86 +72,85 @@ namespace Factors
         private void run()
         {
             dataGridView1.Rows.Clear();
-            double[] b = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
             for (int i = 1; i < 9; i++)
             {
                 dataGridView1.Rows.Add(i, "+", "-", "-", "-", "-", "-", "-", "-", f[i - 1].ToString());
-                b[0] += f[i - 1];
+                ratioArray[0] += f[i - 1];
 
                 if (i % 2 == 0)
                 {
                     dataGridView1.Rows[i - 1].Cells[2].Value = "+";
-                    b[1] += f[i - 1];
-                    b[1] = Math.Round(b[1], 8);
+                    ratioArray[1] += f[i - 1];
+                    ratioArray[1] = Math.Round(ratioArray[1], 8);
                 }
                 else
                 {
-                    b[1] -= f[i - 1];
-                    b[1] = Math.Round(b[1], 8);
+                    ratioArray[1] -= f[i - 1];
+                    ratioArray[1] = Math.Round(ratioArray[1], 8);
                 }
 
                 if ((i > 2 && i < 5) || i > 6)
                 {
                     dataGridView1.Rows[i - 1].Cells[3].Value = "+";
-                    b[2] += f[i - 1];
-                    b[2] = Math.Round(b[2], 8);
+                    ratioArray[2] += f[i - 1];
+                    ratioArray[2] = Math.Round(ratioArray[2], 8);
                 }
                 else
                 {
-                    b[2] -= f[i - 1];
-                    b[2] = Math.Round(b[2], 8);
+                    ratioArray[2] -= f[i - 1];
+                    ratioArray[2] = Math.Round(ratioArray[2], 8);
                 }
 
 
                 if (i > 4)
                 {
                     dataGridView1.Rows[i - 1].Cells[4].Value = "+";
-                    b[3] += f[i - 1];
-                    b[3] = Math.Round(b[3], 8);
+                    ratioArray[3] += f[i - 1];
+                    ratioArray[3] = Math.Round(ratioArray[3], 8);
                 }
                 else
                 {
-                    b[3] -= f[i - 1];
-                    b[3] = Math.Round(b[3], 8);
+                    ratioArray[3] -= f[i - 1];
+                    ratioArray[3] = Math.Round(ratioArray[3], 8);
                 }
 
                 if (((i % 2 == 0) && ((i > 2 && i < 5) || i > 6)) ||
                     ((i % 2 != 0) && ((i < 3 || i > 4) && i < 7)))
                 {
                     dataGridView1.Rows[i - 1].Cells[5].Value = "+";
-                    b[4] += f[i - 1];
-                    b[4] = Math.Round(b[4], 8);
+                    ratioArray[4] += f[i - 1];
+                    ratioArray[4] = Math.Round(ratioArray[4], 8);
                 }
                 else
                 {
-                    b[4] -= f[i - 1];
-                    b[4] = Math.Round(b[4], 8);
+                    ratioArray[4] -= f[i - 1];
+                    ratioArray[4] = Math.Round(ratioArray[4], 8);
                 }
 
                 if (((i % 2 == 0) && (i > 4)) || ((i % 2 != 0) && (i < 5)))
                 {
                     dataGridView1.Rows[i - 1].Cells[6].Value = "+";
-                    b[5] += f[i - 1];
-                    b[5] = Math.Round(b[5], 8);
+                    ratioArray[5] += f[i - 1];
+                    ratioArray[5] = Math.Round(ratioArray[5], 8);
                 }
                 else
                 {
-                    b[5] -= f[i - 1];
-                    b[5] = Math.Round(b[5], 8);
+                    ratioArray[5] -= f[i - 1];
+                    ratioArray[5] = Math.Round(ratioArray[5], 8);
                 }
 
                 if (((i > 4) && ((i > 2 && i < 5) || i > 6)) ||
                     ((i < 5) && ((i < 3 || i > 4) && i < 7)))
                 {
                     dataGridView1.Rows[i - 1].Cells[7].Value = "+";
-                    b[6] += f[i - 1];
-                    b[6] = Math.Round(b[6], 8);
+                    ratioArray[6] += f[i - 1];
+                    ratioArray[6] = Math.Round(ratioArray[6], 8);
                 }
                 else
                 {
-                    b[6] -= f[i - 1];
-                    b[6] = Math.Round(b[6], 8);
+                    ratioArray[6] -= f[i - 1];
+                    ratioArray[6] = Math.Round(ratioArray[6], 8);
                 }
 
                 int count = 0;
@@ -159,45 +161,45 @@ namespace Factors
                 if (count % 2 == 0)
                 {
                     dataGridView1.Rows[i - 1].Cells[8].Value = "+";
-                    b[7] += f[i - 1];
-                    b[7] = Math.Round(b[7], 8);
+                    ratioArray[7] += f[i - 1];
+                    ratioArray[7] = Math.Round(ratioArray[7], 8);
                 }
                 else
                 {
-                    b[7] -= f[i - 1];
-                    b[7] = Math.Round(b[7], 8);
+                    ratioArray[7] -= f[i - 1];
+                    ratioArray[7] = Math.Round(ratioArray[7], 8);
                 }
             }
+            dataGridView1.Height = dataGridView1.Rows.GetRowsHeight(DataGridViewElementStates.Visible) +
+                     dataGridView1.ColumnHeadersHeight;
+            dataGridView1.ClearSelection();
 
             string regression = "y = ";
             string[] parametrs = { $"X\u2081", $"X\u2082", $"X\u2083", $"X\u2081X\u2082", $"X\u2081X\u2083", $"X\u2082X\u2083", $"X\u2081X\u2082X\u2083" };
             for (int i = 0; i < 8; i++)
             {
-                b[i] = Math.Round(b[i] / 8, 8);
-                if (b[i] < 0)
+                ratioArray[i] = Math.Round(ratioArray[i] / 8, 8);
+                if (ratioArray[i] < 0)
                 {
-                    regression += $"- {b[i].ToString().Substring(1)}{parametrs[i - 1]} ";
+                    regression += $"- {ratioArray[i].ToString().Substring(1)}{parametrs[i - 1]} ";
                 }
                 else if (i > 0)
                 {
-                    regression += $"+ {b[i]}{parametrs[i - 1]} ";
+                    regression += $"+ {ratioArray[i]}{parametrs[i - 1]} ";
                 }
                 else
                 {
-                    regression += $"{b[i]} ";
+                    regression += $"{ratioArray[i]} ";
                 }
             }
-
-
-            MessageBox.Show(regression, "Уравнение регрессии");
-            new AdequacyCheck(b, f, flag, i, y1, y2).Show();
+            textBox7.Text = regression;
             button2.Visible = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //double[] k = { 0.0051, 0.0073, 0.0047, 0.00467, 0.0132, 0.01105, 0.0178, 0.0077 };
-            //f = k;
+            this.Width = 410;
+            this.Height = 345;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -209,6 +211,21 @@ namespace Factors
         private void button3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            new AdequacyCheck(ratioArray, f, flag, i, y1, y2).Show();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Text.RegularExpressions;
 
 namespace Factors
 {
@@ -17,6 +8,7 @@ namespace Factors
         int table;
         double[] f;
         double[] y2;
+
         public Parametrs()
         {
             InitializeComponent();
@@ -30,9 +22,10 @@ namespace Factors
             this.y2 = y2;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private static bool IsNumber(string input)
         {
-
+            Regex regex = new Regex(@"^[0-9,\,]+$");
+            return regex.IsMatch(input);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,10 +34,10 @@ namespace Factors
             {
                 textBox7.Visible = true;
                 textBox8.Visible = true;
-                if (isNumber(textBox1.Text) && isNumber(textBox2.Text) &&
-                    isNumber(textBox3.Text) && isNumber(textBox4.Text) &&
-                    isNumber(textBox5.Text) && isNumber(textBox6.Text) &&
-                    isNumber(textBox7.Text) && isNumber(textBox8.Text))
+                if (IsNumber(textBox1.Text) && IsNumber(textBox2.Text) &&
+                    IsNumber(textBox3.Text) && IsNumber(textBox4.Text) &&
+                    IsNumber(textBox5.Text) && IsNumber(textBox6.Text) &&
+                    IsNumber(textBox7.Text) && IsNumber(textBox8.Text))
                 {
                     double[] y = {  double.Parse(textBox1.Text), double.Parse(textBox2.Text),
                                     double.Parse(textBox3.Text), double.Parse(textBox4.Text),
@@ -63,9 +56,9 @@ namespace Factors
             {
                 textBox7.Visible = false;
                 textBox8.Visible = false;
-                if (isNumber(textBox1.Text) && isNumber(textBox2.Text) &&
-                    isNumber(textBox3.Text) && isNumber(textBox4.Text) &&
-                    isNumber(textBox5.Text) && isNumber(textBox6.Text))
+                if (IsNumber(textBox1.Text) && IsNumber(textBox2.Text) &&
+                    IsNumber(textBox3.Text) && IsNumber(textBox4.Text) &&
+                    IsNumber(textBox5.Text) && IsNumber(textBox6.Text))
                 {
                     double[] y = {  double.Parse(textBox1.Text), double.Parse(textBox2.Text),
                                     double.Parse(textBox3.Text), double.Parse(textBox4.Text),
@@ -82,9 +75,9 @@ namespace Factors
             {
                 textBox7.Visible = false;
                 textBox8.Visible = false;
-                if (isNumber(textBox1.Text) && isNumber(textBox2.Text) &&
-                    isNumber(textBox3.Text) && isNumber(textBox4.Text) &&
-                    isNumber(textBox5.Text) && isNumber(textBox6.Text))
+                if (IsNumber(textBox1.Text) && IsNumber(textBox2.Text) &&
+                    IsNumber(textBox3.Text) && IsNumber(textBox4.Text) &&
+                    IsNumber(textBox5.Text) && IsNumber(textBox6.Text))
                 {
                     double[] y = {  double.Parse(textBox1.Text), double.Parse(textBox2.Text),
                                     double.Parse(textBox3.Text), double.Parse(textBox4.Text),
@@ -99,27 +92,39 @@ namespace Factors
             }
         }
 
-        private bool isNumber(string input)
-        {
-            Regex regex = new Regex(@"^[0-9,\,]+$");
-            return regex.IsMatch(input);
-        }
-
         private void Parametrs_Load(object sender, EventArgs e)
         {
             if (table == 1)
             {
-                label7.Visible = true;
-                label8.Visible = true;
-                textBox7.Visible = true;
-                textBox8.Visible = true;
+                panel4.Visible = true;
             }
             else if (table == 2 || table == 3)
             {
-                label7.Visible = false;
-                label8.Visible = false;
-                textBox7.Visible = false;
-                textBox8.Visible = false;
+                panel4.Visible = false;
+                button1.Location = new Point(127,186);
+                this.Height = 280;
+            }
+        }
+
+        private void Parametrs_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            bool formIsOpen = false;
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is Form1)
+                {
+                    if (form.Visible)
+                    {
+                        formIsOpen = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!formIsOpen)
+            {
+                new Form1().Show();
             }
         }
     }
