@@ -256,7 +256,7 @@ dataGridView2.ColumnHeadersHeight;
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(write, "Функция отклика полиномом");
+            //MessageBox.Show(write, "Функция отклика полиномом");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -490,9 +490,9 @@ dataGridView2.ColumnHeadersHeight;
 
                         text = "Дисперсии коэффициентов имеют следующие значения:";
                         printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
-                        text = "S^2{B\u2080} =" + label7.Text.Split("=")[1] + ";      S^2{B\u1D62} = " + label8.Text.Split("=")[1];
+                        text = "S\u00B2{B\u2080} =" + label7.Text.Split("=")[1] + ";      S\u00B2{B\u1D62} = " + label8.Text.Split("=")[1];
                         printText(text, true, 28, "Times New Roman", "center", false, mainPart, body);
-                        text = "S^2{B\u1D62\u2097} =" + label9.Text.Split("=")[1] + ";      S^2{B\u1D62\u1D62} = " + label10.Text.Split("=")[1];
+                        text = "S\u00B2{B\u1D62\u2097} =" + label9.Text.Split("=")[1] + ";      S\u00B2{B\u1D62\u1D62} = " + label10.Text.Split("=")[1];
                         printText(text, true, 28, "Times New Roman", "center", false, mainPart, body);
 
                         text = "Доверительные интервалы для коэффициентов равны:";
@@ -548,6 +548,24 @@ dataGridView2.ColumnHeadersHeight;
                             }
                         }
                         printText(text, true, 28, "Times New Roman", "center", false, mainPart, body);
+
+                        text = $"Для проверки адекватности модели нашли дисперсию адекватности:{label19.Text.Split('=')[1]}";
+                        printText(text, false, 28, "Times New Roman", "both", true, mainPart, body);
+                        text = $"Определили расчетное значение F-критерия:{label20.Text.Split('=')[1]}";
+                        printText(text, false, 28, "Times New Roman", "both", true, mainPart, body);
+
+                        text = "При 5%-ном уровне значимости и числах степеней свободы для " +
+                            "числителя 10 и знаменателя 5 табличное значение критерия 1 равно 4,74. " +
+                            "Значение F\u209A > F\u209C, поэтому модель следует признать адекватной.";
+                        printText(text, false, 28, "Times New Roman", "both", true, mainPart, body);
+                        text = "Поиск оптимальных условий исследуемого процесса при небольшом " +
+                            "числе k влияющих факторов можно упростить, анализируя поверхность " +
+                            "отклика в области оптимума графоаналитическим методом с помощью " +
+                            "двумерных сечений. Исходное уравнение регрессии в этом случае сводят к " +
+                            "уравнению с двумя факторами, стабилизируя остальные на постоянных " +
+                            "уровнях. Этим способом можно получить представление о влиянии каждой " +
+                            "пары факторов на параметр оптимизации.";
+                        printText(text, false, 28, "Times New Roman", "both", true, mainPart, body);
 
                         mainPart.Document.Save();
                     }
