@@ -484,9 +484,9 @@ namespace Factors
 
                         text = "Дисперсии коэффициентов имеют следующие значения:";
                         printText(text, false, 28, "Times New Roman", "boch", true, mainPart, body);
-                        text = "S^2{B\u2080} =" + label7.Text.Split("=")[1] + ";      S^2{B\u1D62} = " + label8.Text.Split("=")[1];
+                        text = "S\u00B2{B\u2080} =" + label7.Text.Split("=")[1] + ";      S\u00B2{B\u1D62} = " + label8.Text.Split("=")[1];
                         printText(text, true, 28, "Times New Roman", "center", false, mainPart, body);
-                        text = "S^2{B\u1D62\u2097} =" + label9.Text.Split("=")[1] + ";      S^2{B\u1D62\u1D62} = " + label10.Text.Split("=")[1];
+                        text = "S\u00B2{B\u1D62\u2097} =" + label9.Text.Split("=")[1] + ";      S\u00B2{B\u1D62\u1D62} = " + label10.Text.Split("=")[1];
                         printText(text, true, 28, "Times New Roman", "center", false, mainPart, body);
 
                         text = "Доверительные интервалы для коэффициентов равны:";
