@@ -48,10 +48,6 @@
             label8 = new Label();
             label9 = new Label();
             label10 = new Label();
-            label17 = new Label();
-            label18 = new Label();
-            label19 = new Label();
-            label20 = new Label();
             button1 = new Button();
             button2 = new Button();
             button4 = new Button();
@@ -81,15 +77,24 @@
             label3 = new Label();
             panel3 = new Panel();
             panel7 = new Panel();
-            groupBox5 = new GroupBox();
-            label16 = new Label();
+            label23 = new Label();
+            panel8 = new Panel();
+            groupBox7 = new GroupBox();
+            label17 = new Label();
+            label18 = new Label();
+            groupBox3 = new GroupBox();
+            label20 = new Label();
             groupBox2 = new GroupBox();
             label14 = new Label();
             label11 = new Label();
             label13 = new Label();
             label12 = new Label();
+            groupBox6 = new GroupBox();
+            label19 = new Label();
             groupBox1 = new GroupBox();
-            label23 = new Label();
+            groupBox5 = new GroupBox();
+            label16 = new Label();
+            panel9 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             panel1.SuspendLayout();
@@ -99,9 +104,14 @@
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             panel7.SuspendLayout();
-            groupBox5.SuspendLayout();
+            panel8.SuspendLayout();
+            groupBox7.SuspendLayout();
+            groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
+            groupBox6.SuspendLayout();
             groupBox1.SuspendLayout();
+            groupBox5.SuspendLayout();
+            panel9.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
@@ -270,90 +280,58 @@
             label10.TabIndex = 12;
             label10.Text = "label10";
             // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Location = new Point(897, 893);
-            label17.Name = "label17";
-            label17.Size = new Size(44, 15);
-            label17.TabIndex = 19;
-            label17.Text = "label17";
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Location = new Point(1233, 893);
-            label18.Name = "label18";
-            label18.Size = new Size(44, 15);
-            label18.TabIndex = 20;
-            label18.Text = "label18";
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Location = new Point(897, 908);
-            label19.Name = "label19";
-            label19.Size = new Size(44, 15);
-            label19.TabIndex = 21;
-            label19.Text = "label19";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Location = new Point(1233, 908);
-            label20.Name = "label20";
-            label20.Size = new Size(44, 15);
-            label20.TabIndex = 22;
-            label20.Text = "label20";
-            // 
             // button1
             // 
-            button1.Location = new Point(1076, 935);
+            button1.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            button1.Location = new Point(226, 7);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
             button1.Size = new Size(299, 28);
             button1.TabIndex = 23;
-            button1.Text = "Вывод функции отклика полиномом";
+            button1.Text = "Вывод функции 'отклика' полиномом";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // button2
             // 
             button2.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            button2.Location = new Point(544, 219);
+            button2.Location = new Point(20, 210);
             button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(203, 28);
+            button2.Size = new Size(727, 28);
             button2.TabIndex = 24;
-            button2.Text = "Изменить значения";
+            button2.Text = "Изменить значения для данного опыта";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
             // button4
             // 
-            button4.Location = new Point(1590, 645);
+            button4.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            button4.Location = new Point(21, 218);
             button4.Margin = new Padding(3, 2, 3, 2);
             button4.Name = "button4";
-            button4.Size = new Size(76, 57);
+            button4.Size = new Size(727, 25);
             button4.TabIndex = 26;
-            button4.Text = "Изменить\r\nзначения";
+            button4.Text = "Изменить значения для данного опыта";
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
             // button3
             // 
-            button3.Location = new Point(1443, 935);
+            button3.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            button3.Location = new Point(584, 7);
             button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
             button3.Size = new Size(162, 28);
             button3.TabIndex = 27;
-            button3.Text = "Отчёт";
+            button3.Text = "Распечать отчет";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
             // button5
             // 
-            button5.Location = new Point(852, 935);
+            button5.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            button5.Location = new Point(3, 7);
             button5.Margin = new Padding(3, 2, 3, 2);
             button5.Name = "button5";
             button5.Size = new Size(162, 28);
@@ -365,7 +343,7 @@
             // label21
             // 
             label21.AutoSize = true;
-            label21.Location = new Point(800, 7);
+            label21.Location = new Point(683, 6);
             label21.Name = "label21";
             label21.Size = new Size(44, 15);
             label21.TabIndex = 29;
@@ -375,7 +353,7 @@
             // label22
             // 
             label22.AutoSize = true;
-            label22.Location = new Point(800, 7);
+            label22.Location = new Point(733, 6);
             label22.Name = "label22";
             label22.Size = new Size(44, 15);
             label22.TabIndex = 30;
@@ -496,7 +474,7 @@
             panel1.Controls.Add(button2);
             panel1.Location = new Point(12, 24);
             panel1.Name = "panel1";
-            panel1.Size = new Size(768, 419);
+            panel1.Size = new Size(768, 449);
             panel1.TabIndex = 31;
             // 
             // panel2
@@ -506,16 +484,16 @@
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(panel3);
-            panel2.Location = new Point(20, 219);
+            panel2.Location = new Point(20, 243);
             panel2.Name = "panel2";
-            panel2.Size = new Size(518, 188);
+            panel2.Size = new Size(727, 188);
             panel2.TabIndex = 25;
             // 
             // panel6
             // 
             panel6.BorderStyle = BorderStyle.FixedSingle;
             panel6.Controls.Add(label5);
-            panel6.Location = new Point(19, 138);
+            panel6.Location = new Point(128, 140);
             panel6.Name = "panel6";
             panel6.Size = new Size(476, 36);
             panel6.TabIndex = 35;
@@ -535,7 +513,7 @@
             // 
             panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(label4);
-            panel5.Location = new Point(19, 96);
+            panel5.Location = new Point(128, 98);
             panel5.Name = "panel5";
             panel5.Size = new Size(476, 36);
             panel5.TabIndex = 34;
@@ -555,7 +533,7 @@
             // 
             panel4.BorderStyle = BorderStyle.FixedSingle;
             panel4.Controls.Add(label3);
-            panel4.Location = new Point(19, 54);
+            panel4.Location = new Point(128, 56);
             panel4.Name = "panel4";
             panel4.Size = new Size(476, 36);
             panel4.TabIndex = 33;
@@ -575,43 +553,98 @@
             // 
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(19, 12);
+            panel3.Location = new Point(128, 14);
             panel3.Name = "panel3";
             panel3.Size = new Size(476, 36);
             panel3.TabIndex = 32;
             // 
             // panel7
             // 
-            panel7.Controls.Add(groupBox5);
-            panel7.Controls.Add(groupBox2);
-            panel7.Controls.Add(groupBox1);
             panel7.Controls.Add(label23);
             panel7.Controls.Add(dataGridView2);
-            panel7.Location = new Point(12, 466);
+            panel7.Controls.Add(panel8);
+            panel7.Controls.Add(button4);
+            panel7.Location = new Point(12, 479);
             panel7.Name = "panel7";
-            panel7.Size = new Size(768, 442);
+            panel7.Size = new Size(768, 441);
             panel7.TabIndex = 32;
             // 
-            // groupBox5
+            // label23
             // 
-            groupBox5.Controls.Add(label16);
-            groupBox5.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            groupBox5.Location = new Point(21, 320);
-            groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(336, 59);
-            groupBox5.TabIndex = 17;
-            groupBox5.TabStop = false;
-            groupBox5.Text = "Математическая модель вротого порядка:";
+            label23.AutoSize = true;
+            label23.Font = new Font("Times New Roman", 12.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label23.Location = new Point(242, 15);
+            label23.Name = "label23";
+            label23.Size = new Size(317, 20);
+            label23.TabIndex = 2;
+            label23.Text = "Результат опытов в \"звездных\" точках";
             // 
-            // label16
+            // panel8
             // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label16.Location = new Point(6, 32);
-            label16.Name = "label16";
-            label16.Size = new Size(47, 15);
-            label16.TabIndex = 0;
-            label16.Text = "label16";
+            panel8.BorderStyle = BorderStyle.Fixed3D;
+            panel8.Controls.Add(groupBox7);
+            panel8.Controls.Add(groupBox3);
+            panel8.Controls.Add(groupBox2);
+            panel8.Controls.Add(groupBox6);
+            panel8.Controls.Add(groupBox1);
+            panel8.Controls.Add(groupBox5);
+            panel8.Location = new Point(21, 251);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(727, 175);
+            panel8.TabIndex = 23;
+            // 
+            // groupBox7
+            // 
+            groupBox7.Controls.Add(label17);
+            groupBox7.Controls.Add(label18);
+            groupBox7.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            groupBox7.Location = new Point(536, 14);
+            groupBox7.Name = "groupBox7";
+            groupBox7.Size = new Size(182, 70);
+            groupBox7.TabIndex = 21;
+            groupBox7.TabStop = false;
+            groupBox7.Text = "Суммы квадратов";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold);
+            label17.Location = new Point(6, 21);
+            label17.Name = "label17";
+            label17.Size = new Size(47, 15);
+            label17.TabIndex = 9;
+            label17.Text = "label17";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold);
+            label18.Location = new Point(6, 46);
+            label18.Name = "label18";
+            label18.Size = new Size(47, 15);
+            label18.TabIndex = 11;
+            label18.Text = "label18";
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(label20);
+            groupBox3.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            groupBox3.Location = new Point(348, 101);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(241, 59);
+            groupBox3.TabIndex = 22;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Расчет значений F-критерия";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label20.Location = new Point(6, 32);
+            label20.Name = "label20";
+            label20.Size = new Size(47, 15);
+            label20.TabIndex = 1;
+            label20.Text = "label20";
             // 
             // groupBox2
             // 
@@ -620,9 +653,9 @@
             groupBox2.Controls.Add(label13);
             groupBox2.Controls.Add(label12);
             groupBox2.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            groupBox2.Location = new Point(323, 235);
+            groupBox2.Location = new Point(269, 14);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(265, 70);
+            groupBox2.Size = new Size(261, 70);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Доверительные интервалы Δ[B]";
@@ -667,6 +700,27 @@
             label12.TabIndex = 10;
             label12.Text = "label12";
             // 
+            // groupBox6
+            // 
+            groupBox6.Controls.Add(label19);
+            groupBox6.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            groupBox6.Location = new Point(595, 101);
+            groupBox6.Name = "groupBox6";
+            groupBox6.Size = new Size(123, 59);
+            groupBox6.TabIndex = 20;
+            groupBox6.TabStop = false;
+            groupBox6.Text = "Дисперсия S²";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label19.Location = new Point(6, 32);
+            label19.Name = "label19";
+            label19.Size = new Size(47, 15);
+            label19.TabIndex = 19;
+            label19.Text = "label19";
+            // 
             // groupBox1
             // 
             groupBox1.Controls.Add(label7);
@@ -674,42 +728,60 @@
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label10);
             groupBox1.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            groupBox1.Location = new Point(21, 235);
+            groupBox1.Location = new Point(6, 14);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(265, 70);
+            groupBox1.Size = new Size(257, 70);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Дисперсия S²[B]";
             // 
-            // label23
+            // groupBox5
             // 
-            label23.AutoSize = true;
-            label23.Font = new Font("Times New Roman", 12.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            label23.Location = new Point(242, 15);
-            label23.Name = "label23";
-            label23.Size = new Size(317, 20);
-            label23.TabIndex = 2;
-            label23.Text = "Результат опытов в \"звездных\" точках";
+            groupBox5.Controls.Add(label16);
+            groupBox5.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            groupBox5.Location = new Point(6, 101);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(336, 59);
+            groupBox5.TabIndex = 17;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "Математическая модель вротого порядка:";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label16.Location = new Point(6, 32);
+            label16.Name = "label16";
+            label16.Size = new Size(47, 15);
+            label16.TabIndex = 0;
+            label16.Text = "label16";
+            // 
+            // panel9
+            // 
+            panel9.BorderStyle = BorderStyle.Fixed3D;
+            panel9.Controls.Add(button5);
+            panel9.Controls.Add(button1);
+            panel9.Controls.Add(button3);
+            panel9.Location = new Point(12, 935);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(768, 45);
+            panel9.TabIndex = 33;
             // 
             // AdequacyCheck
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1801, 992);
+            ClientSize = new Size(793, 996);
+            Controls.Add(panel9);
             Controls.Add(panel7);
             Controls.Add(panel1);
             Controls.Add(label22);
             Controls.Add(label21);
-            Controls.Add(button5);
-            Controls.Add(button3);
-            Controls.Add(button4);
-            Controls.Add(button1);
-            Controls.Add(label20);
-            Controls.Add(label19);
-            Controls.Add(label18);
-            Controls.Add(label17);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
             Name = "AdequacyCheck";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Подробный отчет об эксперименте";
             Load += AdequacyCheck_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -727,12 +799,20 @@
             panel3.PerformLayout();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
-            groupBox5.ResumeLayout(false);
-            groupBox5.PerformLayout();
+            panel8.ResumeLayout(false);
+            groupBox7.ResumeLayout(false);
+            groupBox7.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            groupBox6.ResumeLayout(false);
+            groupBox6.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            panel9.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -760,10 +840,6 @@
         private Label label14;
         private GroupBox groupBox5;
         private Label label13;
-        private Label label17;
-        private Label label18;
-        private Label label19;
-        private Label label20;
         private Button button1;
         private Button button2;
         private Button button4;
@@ -799,5 +875,14 @@
         private Label label16;
         private Label label24;
         private Label label25;
+        private GroupBox groupBox7;
+        private Label label17;
+        private Label label18;
+        private GroupBox groupBox6;
+        private Label label19;
+        private GroupBox groupBox3;
+        private Label label20;
+        private Panel panel8;
+        private Panel panel9;
     }
 }

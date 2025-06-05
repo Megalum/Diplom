@@ -173,11 +173,10 @@ dataGridView2.ColumnHeadersHeight;
                 }
             }
             label16.Text = model;
-
-            label17.Text = $"Остаточная сумма квадратов = {remaining_amount}";
-            label18.Text = $"Cумма квадратов = {sum_squares}";
-            label19.Text = $"Дисперсия = {variance}";
-            label20.Text = $"Расчет значений F-критерия = {number_sort(f_criteria)}";
+            label17.Text = $"Cумма = {sum_squares}";
+            label18.Text = $"Остаточная сумма = {remaining_amount}";
+            label19.Text = $"S² = {variance}";
+            label20.Text = $"F-критерий = {number_sort(f_criteria)}";
 
             label21.Text = "";
             for (int i = 0; i < 11; i++)
