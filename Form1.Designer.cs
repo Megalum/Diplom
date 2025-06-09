@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             textBox1 = new TextBox();
             textBox4 = new TextBox();
             button1 = new Button();
@@ -377,7 +378,7 @@
             button3.Name = "button3";
             button3.Size = new Size(353, 35);
             button3.TabIndex = 17;
-            button3.Text = "Посмотреть отчет о ходе экспримента";
+            button3.Text = "Посмотреть отчет о ходе эксперимента";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click_1;
             // 
@@ -393,11 +394,12 @@
             Controls.Add(dataGridView1);
             Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Calculation of experimental results";
+            Text = "Многофакторый эксперимент";
             FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
