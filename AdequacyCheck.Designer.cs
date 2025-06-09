@@ -196,21 +196,21 @@
             // 
             // Column7
             // 
-            Column7.HeaderText = "Х22";
+            Column7.HeaderText = "Х1²";
             Column7.MinimumWidth = 6;
             Column7.Name = "Column7";
             Column7.Width = 75;
             // 
             // Column8
             // 
-            Column8.HeaderText = "Х13";
+            Column8.HeaderText = "Х2²";
             Column8.MinimumWidth = 6;
             Column8.Name = "Column8";
             Column8.Width = 75;
             // 
             // Column9
             // 
-            Column9.HeaderText = "Х23";
+            Column9.HeaderText = "Х3²";
             Column9.MinimumWidth = 6;
             Column9.Name = "Column9";
             Column9.Width = 75;
@@ -430,21 +430,21 @@
             // 
             // dataGridViewTextBoxColumn6
             // 
-            dataGridViewTextBoxColumn6.HeaderText = "Х22";
+            dataGridViewTextBoxColumn6.HeaderText = "Х1²";
             dataGridViewTextBoxColumn6.MinimumWidth = 6;
             dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             dataGridViewTextBoxColumn6.Width = 75;
             // 
             // dataGridViewTextBoxColumn7
             // 
-            dataGridViewTextBoxColumn7.HeaderText = "Х13";
+            dataGridViewTextBoxColumn7.HeaderText = "Х2²";
             dataGridViewTextBoxColumn7.MinimumWidth = 6;
             dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             dataGridViewTextBoxColumn7.Width = 75;
             // 
             // dataGridViewTextBoxColumn8
             // 
-            dataGridViewTextBoxColumn8.HeaderText = "Х23";
+            dataGridViewTextBoxColumn8.HeaderText = "Х3²";
             dataGridViewTextBoxColumn8.MinimumWidth = 6;
             dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             dataGridViewTextBoxColumn8.Width = 75;
@@ -736,7 +736,7 @@
             groupBox5.Size = new Size(336, 59);
             groupBox5.TabIndex = 17;
             groupBox5.TabStop = false;
-            groupBox5.Text = "Математическая модель вротого порядка:";
+            groupBox5.Text = "Математическая модель второго порядка:";
             // 
             // label16
             // 
@@ -766,7 +766,7 @@
             groupBox4.Size = new Size(768, 65);
             groupBox4.TabIndex = 34;
             groupBox4.TabStop = false;
-            groupBox4.Text = "Функция 'отклика' полиномом";
+            groupBox4.Text = "Уравнение отклика полиномом";
             // 
             // textBox7
             // 
@@ -840,15 +840,6 @@
         private DataGridView dataGridView1;
         private Label label1;
         private Label label2;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
-        private DataGridViewTextBoxColumn Column7;
-        private DataGridViewTextBoxColumn Column8;
-        private DataGridViewTextBoxColumn Column9;
-        private DataGridViewTextBoxColumn Column10;
         private Label label7;
         private Label label8;
         private Label label9;
@@ -867,15 +858,6 @@
         private Label label21;
         private Label label22;
         private DataGridView dataGridView2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private Panel panel1;
         private Panel panel2;
         private Panel panel6;
@@ -903,5 +885,23 @@
         private Panel panel9;
         private GroupBox groupBox4;
         private TextBox textBox7;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewTextBoxColumn Column7;
+        private DataGridViewTextBoxColumn Column8;
+        private DataGridViewTextBoxColumn Column9;
+        private DataGridViewTextBoxColumn Column10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
     }
 }
