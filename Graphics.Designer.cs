@@ -43,6 +43,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Graphics));
             chart5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             button1 = new Button();
@@ -285,6 +286,7 @@
             Controls.Add(panel1);
             Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             Name = "Graphics";
